@@ -53,22 +53,22 @@ housingdata <- read_csv("./housingdata.csv")
 
 # Melb houses
 housemelb_ts <- housingdata |> 
-  as_tibble()|>
+  as_tsibble()|>
   mutate(date=yearquarter(date))
 
 # Melb apartments
 apptmelb_ts <- housingdata |> 
-  as_tibble() |>
+  as_tsibble() |>
   mutate(date=yearquarter(date))
 
 # Syd houses
 housesyd_ts <- housingdata |> 
-  as_tibble() |>
+  as_tsibble() |>
   mutate(date=yearquarter(date))
 
 # Syd apartments
 apptsyd_ts <- housingdata |> 
-  as_tibble() |>
+  as_tsibble() |>
   mutate(date=yearquarter(date))
 ```
 
@@ -114,6 +114,7 @@ Visually, all series look non-stationary as their means are clearly time depende
 
 ```{r}
 #| layout-ncol: 2
+#| fig-cap: "Acf/PACF Plots"
 #| fig-subcap: 
 #|  - "Significant spike at lag $1$ in ACF indicates we use $1$ lag for an ADF test."
 #|  - "The PACF has very slow decay, indicating non stationarity."
