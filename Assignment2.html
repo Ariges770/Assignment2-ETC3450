@@ -216,7 +216,7 @@ window.Quarto = {
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2" title="Plot data">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot data" data-layout-nrow="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
@@ -238,86 +238,36 @@ window.Quarto = {
 </section>
 <section id="formal-hypothesis-tests" class="level2">
 <h2 class="anchored" data-anchor-id="formal-hypothesis-tests">Formal Hypothesis tests</h2>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(housemelb_ts<span class="sc">$</span>house_mel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(housemelb_ts<span class="sc">$</span>house_mel)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(housemelb_ts<span class="sc">$</span>house_mel) </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housemelb_ts<span class="sc">$</span>house_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) <span class="co">#ADF test</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(adf_result)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#KPSS test</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housemelb_ts<span class="sc">$</span>house_mel))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Significant spike at lag <span class="math inline">\(1\)</span> in ACF indicates we use <span class="math inline">\(1\)</span> lag for an ADF test.</figcaption>
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(housemelb_ts<span class="sc">$</span>house_mel) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>The PACF has very slow decay, indicating non stationarity.</figcaption>
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housemelb_ts<span class="sc">$</span>house_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) <span class="co">#ADF test</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(adf_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-############################################### 
-# Augmented Dickey-Fuller Test Unit Root Test # 
-############################################### 
-
-Test regression drift 
-
-
-Call:
-lm(formula = z.diff ~ z.lag.1 + 1 + z.diff.lag)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--50.347 -16.810  -6.335  13.624  98.301 
-
-Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 14.102910   9.283094   1.519    0.133    
-z.lag.1     -0.009238   0.015292  -0.604    0.547    
-z.diff.lag  -0.464417   0.097260  -4.775 7.64e-06 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 26.64 on 83 degrees of freedom
-Multiple R-squared:  0.222, Adjusted R-squared:  0.2032 
-F-statistic: 11.84 on 2 and 83 DF,  p-value: 2.993e-05
-
-
-Value of test-statistic is: -0.6041 4.6527 
-
-Critical values for test statistics: 
-      1pct  5pct 10pct
-tau2 -3.51 -2.89 -2.58
-phi1  6.70  4.71  3.86</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#KPSS test</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housemelb_ts<span class="sc">$</span>house_mel))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>kpss_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    KPSS Test for Level Stationarity
-
-data:  na.omit(housemelb_ts$house_mel)
-KPSS Level = 2.2331, Truncation lag parameter = 3, p-value = 0.01</code></pre>
 </div>
 </div>
-<p>Significant spike at lag <span class="math inline">\(1\)</span> indicates we use <span class="math inline">\(1\)</span> lag for an ADF test</p>
-<p>Very slowly decays, indicating non stationarity</p>
 <p>For the ADF test: The <span class="math inline">\(\tau\)</span> statistic was given as <span class="math inline">\(-0.60\)</span>, which is greater than the critical value of -2.89 at the 5% significance level. Thus, we fail to reject H0 and conclude that the series may have a unit root and differencing is necessary.</p>
 <p>For the KPSS test: the p-value was given as 0.01, so we reject the null in favour of the series being non stationary, which supports the conclusion from the ADF test.</p>
 <p>From the PACF, the strong spike at lag 1 suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first differencing. Therefore, the house_mel series is likely <span class="math inline">\(I(1)\)</span>.</p>

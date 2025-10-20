@@ -113,20 +113,22 @@ Visually, all series look non-stationary as their means are clearly time depende
 ## Formal Hypothesis tests
 
 ```{r}
+#| layout-ncol: 2
+#| fig-cap: 
+#|  - "Significant spike at lag $1$ in ACF indicates we use $1$ lag for an ADF test."
+#|  - "The PACF has very slow decay, indicating non stationarity."
+
 acf(housemelb_ts$house_mel)
 pacf(housemelb_ts$house_mel) 
 
 adf_result <- ur.df(housemelb_ts$house_mel, type = "drift", selectlags = "AIC") #ADF test
-summary(adf_result)
+adf_result_sum <- summary(adf_result)
 
 #KPSS test
 kpss_result <- kpss.test(na.omit(housemelb_ts$house_mel))
-kpss_result
+
 ```
 
-Significant spike at lag $1$ indicates we use $1$ lag for an ADF test
-
-Very slowly decays, indicating non stationarity
 
 For the ADF test: The $\tau$ statistic was given as $-0.60$, which is greater than the critical value of -2.89 at the 5% significance level. Thus, we fail to reject H0 and conclude that the series may have a unit root and differencing is necessary.
 
