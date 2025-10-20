@@ -1,0 +1,167 @@
+---
+title: "ETC3450 Assignment 2"
+author: "Nathan Giofkou"
+date: "2025-10-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r stationarity}
+library(readabs)
+library(tidyverse)
+library(tsibble)
+library(feasts)
+library(dplyr)
+library(urca)
+library(tseries)
+
+# Melbourne housing
+housingdata |> #gathering the data
+  as_tibble()|>
+  mutate(date=yearquarter(date))->housemelb_ts
+
+housemelb_ts |> #creating the plot
+  ggplot(aes(x=date,y=house_mel))+labs(x="data", y="House_mel", title='Melb Median House Prices Over Time')+geom_line()+theme_bw()
+
+acf(housemelb_ts$house_mel)
+pacf(housemelb_ts$house_mel) 
+
+adf_result <- ur.df(housemelb_ts$house_mel, type = "drift", selectlags = "AIC") #ADF test
+summary(adf_result)
+
+#KPSS test
+kpss_result <- kpss.test(na.omit(housemelb_ts$house_mel))
+kpss_result
+########################################################################################
+
+#melb apartments
+housingdata |> 
+  as_tibble()|>
+  mutate(date=yearquarter(date))->apptmelb_ts
+
+apptmelb_ts |> #creating the plot
+  ggplot(aes(x=date,y=appt_mel))+labs(x="data", y="appt_mel", title='Melb Median Apartment Prices Over Time')+geom_line()+theme_bw()
+
+acf(apptmelb_ts$appt_mel)
+pacf(apptmelb_ts$appt_mel) 
+
+adf_result <- ur.df(apptmelb_ts$appt_mel, type = "drift", selectlags = "AIC") #ADF test
+summary(adf_result)
+
+#KPSS test
+kpss_result <- kpss.test(na.omit(apptmelb_ts$appt_mel))
+kpss_result
+#######################################################################################
+
+#syd houses
+housingdata |> 
+  as_tibble()|>
+  mutate(date=yearquarter(date))->housesyd_ts
+
+housesyd_ts |> #creating the plot
+  ggplot(aes(x=date,y=house_syd))+labs(x="data", y="house_syd", title='Sydney Median House Prices Over Time')+geom_line()+theme_bw()
+
+acf(housesyd_ts$house_syd)
+pacf(housesyd_ts$house_syd) 
+
+adf_result <- ur.df(housesyd_ts$house_syd, type = "drift", selectlags = "AIC") #ADF test
+summary(adf_result)
+
+#KPSS test
+kpss_result <- kpss.test(na.omit(housesyd_ts$house_syd))
+kpss_result
+
+#######################################################################################
+
+#syd apartments
+housingdata |> 
+  as_tibble()|>
+  mutate(date=yearquarter(date))->apptsyd_ts
+
+apptsyd_ts |> #creating the plot
+  ggplot(aes(x=date,y=appt_syd))+labs(x="data", y="appt_syd", title='Sydney Median Apartment Prices Over Time')+geom_line()+theme_bw()
+
+acf(apptsyd_ts$appt_syd)
+pacf(apptsyd_ts$appt_syd) 
+
+adf_result <- ur.df(apptsyd_ts$appt_syd, type = "drift", selectlags = "AIC") #ADF test
+summary(adf_result)
+
+#KPSS test
+kpss_result <- kpss.test(na.omit(apptsyd_ts$appt_syd))
+kpss_result
+
+```  
+
+
+```{r cointegration pairs}
+library(egcm)
+library(zoo)
+pair1 <- lm(house_mel ~ house_syd, data = housingdata)
+adf.test(residuals(pair1))
+
+pair2 <- lm(appt_mel ~ appt_syd, data = housingdata)
+adf.test(residuals(pair2))
+
+pair3 <- lm(house_mel ~ appt_mel, data = housingdata)
+adf.test(residuals(pair3))
+
+pair4 <- lm(house_syd ~ appt_syd, data = housingdata)
+adf.test(residuals(pair4))
+
+
+```
+
+```{r cointegration relationships}
+library(vars)
+
+coin <- housingdata[, c("house_mel", "appt_mel", "house_syd", "appt_syd")]
+coin.vecm <- ca.jo(coin, ecdet = "const", type="eigen", K = 2, spec="longrun", season=4)
+summary(coin.vecm)
+
+```
+```{r modelling}
+library(vars)
+#difference every series
+housingdata <- housingdata %>%
+  mutate(
+    d_house_mel = c(NA, diff(house_mel)),
+    d_appt_mel = c(NA, diff(appt_mel)),
+    d_house_syd = c(NA, diff(house_syd)),
+    d_appt_syd = c(NA, diff(appt_syd))
+  ) |>
+  drop_na()
+
+var_model <- VAR(housingdata[, c("d_house_mel", "d_appt_mel", "d_house_syd", "d_appt_syd")], p=1, type = "const")
+
+summary(var_model)
+
+irf_results <- irf(
+  var_model,
+  impulse = "d_appt_mel",  # the variable receiving the shock
+  response = c("d_house_syd", "d_appt_syd", "d_house_mel", "d_appt_mel"),  # affected variables
+  n.ahead = 4,  # number of periods to trace the effect (e.g. 12 quarters = 3 years)
+)
+
+plot(irf_results)
+```
+
+
+```{r alternate}
+var_model_alt <- VAR(housingdata[, c("d_appt_syd", "d_appt_mel", "d_house_syd", "d_house_mel")], p=1, type = "const")
+
+irf_alt <- irf(
+  var_model_alt,
+  impulse = "d_appt_mel",
+  response = c("d_house_syd", "d_appt_syd", "d_house_mel", "d_appt_mel"),  # affected variables
+  n.ahead = 4,
+  cumulative = T
+)
+
+plot(irf_alt)
+```
+
+

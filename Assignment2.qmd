@@ -1,0 +1,110 @@
+---
+title: "ETC3450 — Time Series Econometrics \\newline \\newline Assignment 2"
+author:
+- name: Ari Gestetner
+  email: ages0001@student.monash.edu
+- name: Nathan Giofkou
+  email: ngio0003@student.monash.edu
+- name: Mitchell Evans 
+  email: meva0009@student.monash.edu
+organization: ETC3450
+bibliography: references.bib
+format:
+  html:
+    execute:
+      echo: true
+    code-fold: true
+  report-pdf:
+    execute:
+      echo: false
+
+execute: 
+  warning: false
+---
+
+```{r}
+#| eval: false
+
+renv::load("Assignment2")
+setwd("Assignment2")
+```  
+
+```{r}
+library(tidyverse)
+library(tsibble)
+library(feasts)
+library(dplyr)
+library(urca)
+library(tseries)
+
+housingdata <- read_csv("./housingdata.csv")
+```  
+
+# Housing Data: Time Series Properties
+
+
+## Stationarity: 
+
+> Determine whether series are stationary (use visualisation and hypothesis tests)
+
+
+```{r}
+#| title: Load data
+
+# Melb houses
+housemelb_ts <- housingdata |> 
+  as_tibble()|>
+  mutate(date=yearquarter(date))
+
+# Melb apartments
+apptmelb_ts <- housingdata |> 
+  as_tibble() |>
+  mutate(date=yearquarter(date))
+
+# Syd houses
+housesyd_ts <- housingdata |> 
+  as_tibble() |>
+  mutate(date=yearquarter(date))
+
+# Syd apartments
+apptsyd_ts <- housingdata |> 
+  as_tibble() |>
+  mutate(date=yearquarter(date))
+```
+
+
+```{r}
+#| title: Plot data
+#| layout-ncol: 2
+#| layout-nrow: 2
+
+# Creating the plot
+housemelb_ts |> 
+  ggplot(aes(x=date,y=house_mel))+labs(x="data", y="House_mel", title='Melb Median House Prices Over Time') +
+    geom_line() +
+    theme_bw()
+
+# Creating the plot
+apptmelb_ts |> 
+  ggplot(aes(x=date,y=appt_mel)) + 
+    labs(x="data", y="appt_mel", title='Melb Median Apartment Prices Over Time') + 
+    geom_line() +
+    theme_bw()
+
+
+
+# Creating the plot
+housesyd_ts |> 
+  ggplot(aes(x=date,y=house_syd)) + 
+    labs(x="data", y="house_syd", title='Sydney Median House Prices Over Time') + 
+    geom_line() +
+    theme_bw()
+
+# Creating the plot
+apptsyd_ts |> 
+  ggplot(aes(x=date,y=appt_syd)) + 
+    labs(x="data", y="appt_syd", title='Sydney Median Apartment Prices Over Time') + 
+    geom_line() +
+    theme_bw()
+
+```
