@@ -124,11 +124,11 @@ kpss_result <- kpss.test(na.omit(housemelb_ts$house_mel))
 kpss_result
 ```
 
-Significant spike at lag 1 indicates we use 1 lag for an ADF test
+Significant spike at lag $1$ indicates we use $1$ lag for an ADF test
 
 Very slowly decays, indicating non stationarity
 
-For the ADF test: The τ statistic was given as -0.60, which is greater than the critical value of -2.89 at the 5% significance level. Thus, we fail to reject H0 and conclude that the series may have a unit root and differencing is necessary.
+For the ADF test: The $\tau$ statistic was given as $-0.60$, which is greater than the critical value of -2.89 at the 5% significance level. Thus, we fail to reject H0 and conclude that the series may have a unit root and differencing is necessary.
 
 For the KPSS test: the p-value was given as 0.01, so we reject the null in favour of the series being non stationary, which supports the conclusion from the ADF test.
 
