@@ -119,11 +119,8 @@ window.Quarto = {
   <li><a href="#formal-hypothesis-tests" id="toc-formal-hypothesis-tests" class="nav-link" data-scroll-target="#formal-hypothesis-tests">Formal Hypothesis tests</a>
   <ul class="collapse">
   <li><a href="#melbourne-housing-prices" id="toc-melbourne-housing-prices" class="nav-link" data-scroll-target="#melbourne-housing-prices">Melbourne Housing Prices</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#todo" id="toc-todo" class="nav-link" data-scroll-target="#todo">TODO:</a>
-  <ul class="collapse">
   <li><a href="#melbourne-apartment-prices" id="toc-melbourne-apartment-prices" class="nav-link" data-scroll-target="#melbourne-apartment-prices">Melbourne Apartment Prices</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#todo-1" id="toc-todo-1" class="nav-link" data-scroll-target="#todo-1">TODO:</a></li>
   </ul>
@@ -209,7 +206,7 @@ window.Quarto = {
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"data"</span>, <span class="at">y=</span><span class="st">"appt_syd"</span>, <span class="at">title=</span><span class="st">'Sydney Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2" title="Plot data">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot data" data-layout-nrow="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
@@ -276,11 +273,6 @@ window.Quarto = {
 <p>For the KPSS test: the <span class="math inline">\(p\)</span>-value was given as <span class="math inline">\(0.01\)</span>, so we reject the null in favour of the series being non stationary, which supports the conclusion from the ADF test.</p>
 <p>From the PACF, the strong spike at lag <span class="math inline">\(1\)</span> suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first order differencing. Therefore, the Melbourne housing series is likely <span class="math inline">\(I(1)\)</span>.</p>
 </section>
-</section>
-</section>
-<section id="todo" class="level1">
-<h1>TODO:</h1>
-<p>Does the housing difference likely need only a first order differencing? How do we know it doesn’t need 2?</p>
 <section id="melbourne-apartment-prices" class="level3">
 <h3 class="anchored" data-anchor-id="melbourne-apartment-prices">Melbourne Apartment Prices</h3>
 <details class="code-fold">
@@ -325,6 +317,7 @@ window.Quarto = {
 <p>For the ADF test: The <span class="math inline">\(\tau\)</span> statistic was given as <span class="math inline">\(-1.35\)</span>, which is greater than the critical value of <span class="math inline">\(-2.89\)</span> at the <span class="math inline">\(5\%\)</span> significance level. Thus, we fail to reject <span class="math inline">\(H_0\)</span> and conclude that the series may have a unit root and differencing is necessary.</p>
 <p>For the KPSS test: the <span class="math inline">\(p\)</span>-value was given as <span class="math inline">\(0.01\)</span>, so we reject the null in favour of the series being non stationary, which supports the conclusion from the ADF test.</p>
 <p>From the PACF, the strong spike at lag <span class="math inline">\(1\)</span> suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first differencing. Therefore, the Melbourne apartment series is likely <span class="math inline">\(I(1)\)</span>.</p>
+</section>
 </section>
 </section>
 <section id="todo-1" class="level1">
