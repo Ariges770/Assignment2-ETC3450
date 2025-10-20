@@ -106,5 +106,6 @@ apptsyd_ts |>
     labs(x="data", y="appt_syd", title='Sydney Median Apartment Prices Over Time') + 
     geom_line() +
     theme_bw()
-
 ```
+
+Visually, all series look non-stationary as their means are clearly time dependent and all series exhibit an upwards trend. Doesn’t seem to be any seasonality.
