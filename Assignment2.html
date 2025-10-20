@@ -216,7 +216,7 @@ window.Quarto = {
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot data" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2" title="Plot data">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
@@ -242,11 +242,16 @@ window.Quarto = {
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(housemelb_ts<span class="sc">$</span>house_mel)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(housemelb_ts<span class="sc">$</span>house_mel) </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housemelb_ts<span class="sc">$</span>house_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) <span class="co">#ADF test</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(adf_result)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#KPSS test</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housemelb_ts<span class="sc">$</span>house_mel))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>hm_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housemelb_ts<span class="sc">$</span>house_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) <span class="co">#ADF test</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>hm_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(hm_adf_result)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>hm_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>hm_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#KPSS test</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>hm_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housemelb_ts<span class="sc">$</span>house_mel))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>hm_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
@@ -268,9 +273,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>For the ADF test: The <span class="math inline">\(\tau\)</span> statistic was given as <span class="math inline">\(-0.60\)</span>, which is greater than the critical value of -2.89 at the 5% significance level. Thus, we fail to reject H0 and conclude that the series may have a unit root and differencing is necessary.</p>
-<p>For the KPSS test: the p-value was given as 0.01, so we reject the null in favour of the series being non stationary, which supports the conclusion from the ADF test.</p>
-<p>From the PACF, the strong spike at lag 1 suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first differencing. Therefore, the house_mel series is likely <span class="math inline">\(I(1)\)</span>.</p>
+<p>For the ADF test: The <span class="math inline">\(\tau\)</span> statistic was given as <span class="math inline">\(-0.6\)</span>, which is greater than the critical value of <span class="math inline">\(-2.89\)</span> at the <span class="math inline">\(5\%\)</span> significance level. Thus, we fail to reject <span class="math inline">\(H_0\)</span> and conclude that the series may have a unit root and differencing is necessary.</p>
+<p>For the KPSS test: the p-value was given as <span class="math inline">\(0.01\)</span>, so we reject the null in favour of the series being non stationary, which supports the conclusion from the ADF test.</p>
+<p>From the PACF, the strong spike at lag <span class="math inline">\(1\)</span> suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first order differencing. Therefore, the house_mel series is likely <span class="math inline">\(I(1)\)</span>.</p>
 </section>
 </section>
 

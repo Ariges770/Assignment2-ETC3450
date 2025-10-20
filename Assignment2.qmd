@@ -133,7 +133,7 @@ hm_kpss_pval <- round(hm_kpss_result$p.value, 2)
 ```
 
 
-For the ADF test: The $\tau$ statistic was given as $`r hm_adf_testval`$, which is greater than the critical value of $`r hm_adf_cval`$ at the $5\%$ significance level. Thus, we fail to reject $H_0$ and conclude that the series may have a unit root and differencing is necessary.
+For the ADF test: The $\tau$ statistic was given as $`r hm_adf_teststat`$, which is greater than the critical value of $`r hm_adf_cval`$ at the $5\%$ significance level. Thus, we fail to reject $H_0$ and conclude that the series may have a unit root and differencing is necessary.
 
 For the KPSS test: the p-value was given as $`r hm_kpss_pval`$, so we reject the null in favour of the series being non stationary, which supports the conclusion from the ADF test.
 
