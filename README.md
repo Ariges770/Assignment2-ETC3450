@@ -1,6 +1,6 @@
 # Assignment2-ETC3450
 
-[![Render Quarto](https://github.com/Ariges770/Assignment2-ETC3450/actions/workflows/render-quarto.yml/badge.svg)](https://github.com/Ariges770/Assignment2-ETC3450/actions/workflows/render-quarto.yml)
+[![Quarto Publish](https://github.com/Ariges770/Assignment2-ETC3450/actions/workflows/render-quarto.yml/badge.svg)](https://github.com/Ariges770/Assignment2-ETC3450/actions/workflows/render-quarto.yml)
 
 This repository contains Assignment 2 for ETC3450: Time Series Econometrics.
 
@@ -11,6 +11,15 @@ This repository contains Assignment 2 for ETC3450: Time Series Econometrics.
 - `references.bib`: Bibliography file
 - `renv.lock`: R package lockfile for reproducible environments
 
-## Rendering
+## Automatic Publishing
 
-The document is automatically rendered to HTML and PDF when changes are pushed to the main branch via GitHub Actions.
+The document is automatically rendered and published to GitHub Pages when changes are pushed to the main branch.
+
+**View the published document**: https://ariges770.github.io/Assignment2-ETC3450/
+
+## Local Development
+
+To render locally:
+```bash
+quarto render Assignment2.qmd
+```

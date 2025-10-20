@@ -1,60 +1,35 @@
-name: Render Quarto Document
-
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: main
+
+name: Quarto Publish
 
 jobs:
-  render:
+  build-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-    - name: Install system dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
 
-    - name: Setup R
-      uses: r-lib/actions/setup-r@v2
-      with:
-        r-version: '4.4.2'
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.2'
 
-    - name: Cache R packages
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.local/share/renv
-          renv/library
-        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-renv-
+      - name: Install R Dependencies
+        uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 1
 
-    - name: Install renv
-      run: |
-        install.packages("renv")
-        renv::restore()
-      shell: Rscript {0}
-
-    - name: Install Quarto
-      uses: quarto-dev/quarto-actions/install-quarto@v1
-      with:
-        version: latest
-
-    - name: Render Quarto document
-      run: |
-        quarto render Assignment2.qmd
-
-    - name: Commit rendered files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add Assignment2.html Assignment2.pdf Assignment2_files/
-        git diff --quiet && git diff --staged --quiet || git commit -m "Render Quarto document [skip ci]"
-        git push
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
