@@ -86,7 +86,9 @@ Visually, all series look non-stationary as their means are clearly time depende
 
 ```{r}
 #| layout-ncol: 2
-#| fig-cap: 
+#| fig-cap: ACF/PACF Plots
+#| cap-location: top
+#| fig-subcap: 
 #|  - "The ACF has very slow decay, indicating non stationarity."
 #|  - "Significant spike at lag $1$ in PACF indicates we use $1$ lag for an ADF test."
 
@@ -116,7 +118,7 @@ For the KPSS test: the $p$-value was given as $`r hm_kpss_pval`$, so we reject t
 
 From the PACF, the strong spike at lag $1$ suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first order differencing. Therefore, the Melbourne housing series is likely $I(1)$.
 
-:::{.content-hidden unless-meta="execute.warning"}
+:::{.content-hidden when-format="pdf"}
 # TODO: 
 Does the housing difference likely need only a first order differencing? How do we know it doesn't need 2?
 :::
@@ -125,7 +127,6 @@ Does the housing difference likely need only a first order differencing? How do 
 
 ```{r}
 #| layout-ncol: 2
-#| fig-cap: "ACF/PACF Plots"
 
 ACF(housingdata, appt_mel) |>
   autoplot() +
@@ -154,6 +155,6 @@ From the PACF, the strong spike at lag $1$ suggests the presence of persistence 
 
 :::{.content-hidden when-format="pdf"}
 # TODO: 
-Like before
+Like before  
 Does the apartments price differencing likely need only a first order differencing? How do we know it doesn't need 2?
 :::
