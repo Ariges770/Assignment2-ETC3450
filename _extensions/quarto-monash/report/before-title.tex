@@ -4,6 +4,8 @@
  {labelfont={bf},textfont={it},labelsep=colon}
 \captionsetup[figure]{style=italic,format=hang,singlelinecheck=true}
 \captionsetup[table]{style=italic,format=hang,singlelinecheck=true}
+\usepackage{subcaption}
+\subcaptionsetup{style=italic,format=hang,singlelinecheck=true, margin=10pt}
 
 %% FONT
 \usepackage{bera}
@@ -21,7 +23,7 @@
 \makeatother
 \rhead{}
 \cfoot{}
-\setlength{\headheight}{15pt}
+\setlength{\headheight}{12pt}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \fancypagestyle{plain}{%
@@ -46,11 +48,16 @@
 \renewcommand{\textfraction}{0.15}
 \renewcommand{\floatpagefraction}{0.8}
 
+%% COLOUR
+\long\def\usercol{
+  \color[rgb]{0.22,0,0.28}
+}
+
 %% SECTION TITLES
 \usepackage[compact,sf,bf]{titlesec}
-\titleformat*{\section}{\Large\sf\bfseries\color[rgb]{0.7,0,0}}
-\titleformat*{\subsection}{\large\sf\bfseries\color[rgb]{0.7,0,0}}
-\titleformat*{\subsubsection}{\sf\bfseries\color[rgb]{0.7,0,0}}
+\titleformat*{\section}{\Large\sf\bfseries\usercol}
+\titleformat*{\subsection}{\large\sf\bfseries\usercol}
+\titleformat*{\subsubsection}{\sf\bfseries\usercol}
 \titlespacing{\section}{0pt}{*5}{*1}
 \titlespacing{\subsection}{0pt}{*2}{*0.2}
 \titlespacing{\subsubsection}{0pt}{*1}{*0.1}

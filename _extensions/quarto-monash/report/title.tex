@@ -30,14 +30,21 @@ $endif$
 %%%% PAGE STYLE FOR FRONT PAGE OF REPORTS
 
 \makeatletter
-\def\organization#1{\gdef\@organization{#1}}
+\def\unit#1{\gdef\@unit{#1}}
+\def\unittitle#1{\gdef\@unittitle{#1}}
 \def\telephone#1{\gdef\@telephone{#1}}
 \def\email#1{\gdef\@email{#1}}
 \makeatother
-$if(organization)$
-  \organization{$organization$}
+$if(unit)$
+  \unit{$unit$}
 $else$
-  \organization{}
+  \unit{}
+$endif$
+
+$if(unittitle)$
+  \unittitle{$unittitle$}
+$else$
+  \unittitle{}
 $endif$
 
 $if(department)$
@@ -58,6 +65,7 @@ $else$
   \email{BusEco-Econometrics@monash.edu}
 $endif$
 
+
 \def\webaddress{\url{https://www.monash.edu/business/ebs}}
 \def\abn{12 377 614 012}
 \def\extraspace{\vspace*{1.6cm}}
@@ -74,7 +82,7 @@ $endif$
 
 \def\reporttype{Report for}
 
-\long\def\front#1#2#3{
+\long\def\front#1#2#3#4{
 \newpage
 \begin{textblock}{7}(12.7,28.2)\hfill
 \end{textblock}
@@ -101,7 +109,13 @@ $endif$
   \hbox to 10cm{\vbox to 14cm{\vbox to 25cm{
       \vspace*{3cm}\sf\raggedright
       \parbox{10cm}{\sf\raggedright\baselineskip=1.2cm
-         \fontsize{24.88}{30}\color[rgb]{0.70,0.00,0.00}\sf\textbf{#1}}
+         \fontsize{24.88}{30}\usercol\sf\textbf{#3}}
+      \parbox{10cm}{\sf\raggedright\baselineskip=1.2cm
+         \fontsize{24.88}{30}\usercol\sf\textbf{#4}}
+      \par
+      \vspace*{1cm}\sf\raggedright
+      \parbox{10cm}{\sf\raggedright\baselineskip=1.2cm
+         \fontsize{24.88}{30}\usercol\sf\textbf{#1}}
       \par
       \vfill
       \large
@@ -116,10 +130,10 @@ $endif$
 }
 
 \makeatletter
-\def\maketitle{\front{\expandafter{\@title}}{\@author}{\@organization}}
+\def\maketitle{\front{\expandafter{\@title}}{\@author}{\@unit}{\@unittitle}}
 \makeatother
 
 % Authors
 
-\author{\sf$for(by-author)${\Large\textbf{$by-author.name.literal$} $if(by-author.degrees)$\\\large $by-author.degrees$$endif$\\[0.5cm]}$endfor$}
+\author{\sf$for(by-author)${\Large\textbf{$by-author.name.literal$} $if(by-author.email)$\\\large $by-author.email$$endif$\\[0.5cm]}$endfor$}
 \lfoot{\sf $for(by-author)$$by-author.name.family$$sep$, $endfor$: $date$}

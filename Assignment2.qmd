@@ -1,5 +1,8 @@
 ---
-title: "ETC3450 — Time Series Econometrics \\newline \\newline Assignment 2"
+unit: "ETC3450"
+unittitle: "Time Series Econometrics"
+title:  "Assignment 2"
+subtitle: "Housing Data: Time Series Properties"
 author:
 - name: Ari Gestetner
   email: ages0001@student.monash.edu
@@ -7,13 +10,14 @@ author:
   email: ngio0003@student.monash.edu
 - name: Mitchell Evans 
   email: meva0009@student.monash.edu
-organization: ETC3450
 bibliography: references.bib
 format:
   html:
     execute:
       echo: true
     code-fold: true
+    code-line-numbers: true
+    code-copy: hover
   report-pdf:
     execute:
       echo: false
@@ -36,6 +40,7 @@ library(feasts)
 library(dplyr)
 library(urca)
 library(tseries)
+library(egcm)
 
 theme_set(theme_bw(base_size = 16))
 
@@ -51,28 +56,29 @@ housingdata <- read_csv("./housingdata.csv") |>
 > Determine whether series are stationary (use visualisation and hypothesis tests)
 
 ```{r}
+#| fig-pos: 'H'
 #| title: Plot data
 #| layout-ncol: 2
 #| layout-nrow: 2
 
 housingdata |> 
   ggplot(aes(x=date,y=house_mel)) +
-    labs(x="date", y="House_mel", title='Melb Median House Prices Over Time') +
+    labs(x="Date", y="Price", title='Melbourne Median House Prices Over Time') +
     geom_line()
 
 housingdata |> 
   ggplot(aes(x=date,y=appt_mel)) + 
-    labs(x="date", y="appt_mel", title='Melb Median Apartment Prices Over Time') + 
+    labs(x="Date", y="Price", title='Melbourne Median Apartment Prices Over Time') + 
     geom_line()
 
 housingdata |> 
   ggplot(aes(x=date,y=house_syd)) + 
-    labs(x="date", y="house_syd", title='Sydney Median House Prices Over Time') + 
+    labs(x="Date", y="Price", title='Sydney Median House Prices Over Time') + 
     geom_line()
 
 housingdata |> 
   ggplot(aes(x=date,y=appt_syd)) + 
-    labs(x="date", y="appt_syd", title='Sydney Median Apartment Prices Over Time') + 
+    labs(x="Date", y="Price", title='Sydney Median Apartment Prices Over Time') + 
     geom_line()
 ```
 
@@ -83,6 +89,7 @@ Visually, all series look non-stationary as their means are clearly time depende
 ### Melbourne Housing Prices
 
 ```{r}
+#| fig-pos: 'H'
 #| label: fig-melb-acf-pacf 
 #| fig-cap: "ACF and PACF plots of Melbourne housing prices"
 #| fig-subcap:
@@ -120,6 +127,7 @@ From the PACF, the strong spike at lag $1$ suggests the presence of persistence 
 ### Melbourne Apartment Prices
 
 ```{r}
+#| fig-pos: 'H'
 #| layout-ncol: 2
 
 ACF(housingdata, appt_mel) |>
@@ -148,14 +156,10 @@ For the KPSS test: the $p$-value was given as $`r hm_kpss_pval`$, so we reject t
 From the PACF, the strong spike at lag $1$ suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first differencing. Therefore, the Melbourne apartment series is likely $I(1)$.
 
 
-### Sydney Housing Prices
+### Sydney Housing Prices  
 
 ```{r}
-#| label: fig-syd-acf-pacf 
-#| fig-cap: ""
-#| fig-subcap: 
-#|   - ""
-#|   - ""
+#| fig-pos: 'H'
 #| layout-ncol: 2
 
 ACF(housingdata, house_syd) |>
@@ -189,6 +193,7 @@ From the PACF, the strong spike at lag $1$ suggests the presence of persistence 
 ### Sydney Apartment Prices
 
 ```{r}
+#| fig-pos: 'H'
 #| layout-ncol: 2
 
 ACF(housingdata, appt_syd) |>
@@ -219,4 +224,73 @@ From the PACF, the strong spike at lag $1$ suggests the presence of persistence 
 
 
 ## Conclusion on Stationarity:
-All series are determined to be non-stationary and have unit roots. All are integrated of order $1$—$I(1)$; meaning that taking the first difference of each series should make each series stationary.
+All series are determined to be non-stationary and have unit roots. All are integrated of order $1$-$I(1)$; meaning that taking the first difference of each series should make each series stationary.
+
+# Cointegration
+
+> Pairs:
+  - Houseprices in Melbourne and Sydney
+  - Apartment prices in Melbourne and Sydney
+  - Apartment prices in Melbourne and house prices in Melbourne
+  - House prices in Sydney and house prices in Sydney
+
+## Test for cointegration of each pair  
+Use Engle-Granger procedure as dealing with pairs
+1. Run long run regression $y_t = a + \beta x_t + u_t$
+2. Save $u_t$
+3. Test the residuals for stationarity (ADF test on ut)
+	$H_0$: resids have a unit root (no cointegration)
+	$H_1$: resids are stationary (cointegration)
+
+### Houseprices in Melbourne and Sydney  
+
+```{r}
+hm_hs_test <- housingdata |> 
+  lm(house_mel ~ house_syd, data = _) |>
+  residuals() |>
+  adf.test()
+
+hm_hs_p_val <- hm_hs_test |> pluck("p.value") |> round(2)
+```
+
+$p$-value was given as $`r hm_hs_p_val`$ meaning there is insufficient evidence to reject $H_0$, indicating that the residuals may be non stationary. Thus, there is no evidence of cointegration between house prices in melbourne and sydney 
+
+### Apartment prices in Melbourne and Sydney  
+```{r}
+am_as_test <- housingdata |> 
+  lm(appt_mel ~ appt_syd, data = _) |>
+  residuals() |>
+  adf.test()
+
+am_as_p_val <- am_as_test |> pluck("p.value") |> round(2)
+```  
+
+$p$-value was given as $`r am_as_p_val`$ meaning there is insufficient evidence to reject $H_0$, indicating that the residuals may be non stationary. Thus, there is no evidence of cointegration between apartment prices in melbourne and sydney 
+
+### Apartment prices in Melbourne and house prices in Melbourne  
+```{r}
+am_hm_test <- housingdata |> 
+  lm(house_mel ~ appt_mel, data = _) |>
+  residuals() |>
+  adf.test()
+
+am_hm_p_val <- am_hm_test |> pluck("p.value") |> round(2)
+```  
+
+$p$-value was given as $`r am_hm_p_val`$ meaning there is insufficient evidence to reject $H_0$, indicating that the residuals may be non stationary. Thus, there is no evidence of cointegration between apartment prices and house prices in melbourne 
+
+### Apartment prices in Sydney and house prices in Sydney  
+```{r}
+as_hs_test <- housingdata |> 
+  lm(house_syd ~ appt_syd, data = _) |>
+  residuals() |>
+  adf.test()
+
+as_hs_p_val <- as_hs_test |> pluck("p.value") |> round(2)
+```  
+
+$p$-value was given as $`r as_hs_p_val`$ meaning there is insufficient evidence to reject $H_0$, indicating that the residuals may be non stationary. Thus, there is no evidence of cointegration between apartment prices and house prices in Sydney
+
+## CONCLUSION
+No cointegration between the given pairs, meaning the two price series only move together in the short run and don’t move around a common long run equilibrium.  
+
