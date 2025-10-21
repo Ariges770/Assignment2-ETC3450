@@ -45,10 +45,8 @@ housingdata <- read_csv("./housingdata.csv") |>
   as_tsibble()
 ```  
 
-# Housing Data: Time Series Properties
 
-
-## Stationarity: 
+# Stationarity: 
 
 > Determine whether series are stationary (use visualisation and hypothesis tests)
 
@@ -59,22 +57,22 @@ housingdata <- read_csv("./housingdata.csv") |>
 
 housingdata |> 
   ggplot(aes(x=date,y=house_mel)) +
-    labs(x="data", y="House_mel", title='Melb Median House Prices Over Time') +
+    labs(x="date", y="House_mel", title='Melb Median House Prices Over Time') +
     geom_line()
 
 housingdata |> 
   ggplot(aes(x=date,y=appt_mel)) + 
-    labs(x="data", y="appt_mel", title='Melb Median Apartment Prices Over Time') + 
+    labs(x="date", y="appt_mel", title='Melb Median Apartment Prices Over Time') + 
     geom_line()
 
 housingdata |> 
   ggplot(aes(x=date,y=house_syd)) + 
-    labs(x="data", y="house_syd", title='Sydney Median House Prices Over Time') + 
+    labs(x="date", y="house_syd", title='Sydney Median House Prices Over Time') + 
     geom_line()
 
 housingdata |> 
   ggplot(aes(x=date,y=appt_syd)) + 
-    labs(x="data", y="appt_syd", title='Sydney Median Apartment Prices Over Time') + 
+    labs(x="date", y="appt_syd", title='Sydney Median Apartment Prices Over Time') + 
     geom_line()
 ```
 
@@ -85,12 +83,12 @@ Visually, all series look non-stationary as their means are clearly time depende
 ### Melbourne Housing Prices
 
 ```{r}
+#| label: fig-melb-acf-pacf 
+#| fig-cap: "ACF and PACF plots of Melbourne housing prices"
+#| fig-subcap:
+#|   - "The ACF has very slow decay, indicating non stationarity."
+#|   - "Significant spike at lag $1$ in PACF indicates we use $1$ lag for an ADF test."
 #| layout-ncol: 2
-#| fig-cap: ACF/PACF Plots
-#| cap-location: top
-#| fig-subcap: 
-#|  - "The ACF has very slow decay, indicating non stationarity."
-#|  - "Significant spike at lag $1$ in PACF indicates we use $1$ lag for an ADF test."
 
 ACF(housingdata, house_mel) |>
   autoplot() +
@@ -118,10 +116,6 @@ For the KPSS test: the $p$-value was given as $`r hm_kpss_pval`$, so we reject t
 
 From the PACF, the strong spike at lag $1$ suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first order differencing. Therefore, the Melbourne housing series is likely $I(1)$.
 
-:::{.content-hidden when-format="pdf"}
-# TODO: 
-Does the housing difference likely need only a first order differencing? How do we know it doesn't need 2?
-:::
 
 ### Melbourne Apartment Prices
 
@@ -153,8 +147,76 @@ For the KPSS test: the $p$-value was given as $`r hm_kpss_pval`$, so we reject t
 
 From the PACF, the strong spike at lag $1$ suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first differencing. Therefore, the Melbourne apartment series is likely $I(1)$.
 
-:::{.content-hidden when-format="pdf"}
-# TODO: 
-Like before  
-Does the apartments price differencing likely need only a first order differencing? How do we know it doesn't need 2?
-:::
+
+### Sydney Housing Prices
+
+```{r}
+#| label: fig-syd-acf-pacf 
+#| fig-cap: ""
+#| fig-subcap: 
+#|   - ""
+#|   - ""
+#| layout-ncol: 2
+
+ACF(housingdata, house_syd) |>
+  autoplot() +
+  labs(x="Lag", y="ACF", title="ACF of Sydney Housing data")
+PACF(housingdata, house_syd) |>
+  autoplot() +
+  labs(x="Lag", y="PACF", title="PACF of Sydney Housing data")
+
+# ADF test (hs_ stands for houses sydney)
+hs_adf_result <- ur.df(housingdata$house_syd, type = "drift", selectlags = "AIC") 
+hs_adf_result_sum <- summary(hs_adf_result)
+
+hs_adf_teststat <- round(hs_adf_result_sum@teststat[1], 2)
+hs_adf_cval <- round(hs_adf_result_sum@cval[1,2], 2)
+
+#KPSS test
+hs_kpss_result <- kpss.test(na.omit(housingdata$house_syd))
+hs_kpss_pval <- round(hs_kpss_result$p.value, 2)
+```
+
+
+For the ADF test: The $\tau$ statistic was given as $`r hs_adf_teststat`$, which is greater than the critical value of $`r hs_adf_cval`$ at the $5\%$ significance level. Thus, we fail to reject $H_0$ and conclude that the series may have a unit root and differencing is necessary.
+
+For the KPSS test: the $p$-value was given as $`r hs_kpss_pval`$, so we reject the null in favour of the series being non stationary, which supports the conclusion from the ADF test.
+
+From the PACF, the strong spike at lag $1$ suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first differencing. Therefore, the Sydney housing series is likely $I(1)$.
+
+
+
+### Sydney Apartment Prices
+
+```{r}
+#| layout-ncol: 2
+
+ACF(housingdata, appt_syd) |>
+  autoplot() +
+  labs(x="Lag", y="ACF", title="ACF of Sydney Apartment data")
+PACF(housingdata, appt_syd) |>
+  autoplot() +
+  labs(x="Lag", y="PACF", title="PACF of Sydney Apartment data")
+
+# ADF test (as_ stands for apartments sydney)
+as_adf_result <- ur.df(housingdata$appt_syd, type = "drift", selectlags = "AIC") 
+as_adf_result_sum <- summary(as_adf_result)
+
+as_adf_teststat <- round(as_adf_result_sum@teststat[1], 2)
+as_adf_cval <- round(as_adf_result_sum@cval[1,2], 2)
+
+#KPSS test
+as_kpss_result <- kpss.test(na.omit(housingdata$appt_syd))
+as_kpss_pval <- round(as_kpss_result$p.value, 2)
+```
+
+
+For the ADF test: The $\tau$ statistic was given as $`r as_adf_teststat`$, which is greater than the critical value of $`r as_adf_cval`$ at the $5\%$ significance level. Thus, we fail to reject $H_0$ and conclude that the series may have a unit root and differencing is necessary.
+
+For the KPSS test: the $p$-value was given as $`r as_kpss_pval`$, so we reject the null in favour of the series being non stationary, which supports the conclusion from the ADF test.
+
+From the PACF, the strong spike at lag $1$ suggests the presence of persistence in the series, which is consistent with non-stationary behaviour. Combined with formal unit root tests, this indicates that the series likely becomes stationary after first differencing. Therefore, the Sydney apartment series is likely $I(1)$.
+
+
+## Conclusion on Stationarity:
+All series are determined to be non-stationary and have unit roots. All are integrated of order $1$—$I(1)$; meaning that taking the first difference of each series should make each series stationary.
