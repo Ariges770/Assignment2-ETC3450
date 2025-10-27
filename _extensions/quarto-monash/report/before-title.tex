@@ -13,6 +13,14 @@
 %\usepackage[scale=0.9]{sourcecodepro}
 \usepackage[lf,t]{FiraSans}
 \usepackage{fontawesome}
+\usepackage[scale=0.9]{sourcecodepro}
+\usepackage{svg}
+\usepackage{enumitem}
+
+%% LISTS
+% https://stackoverflow.com/questions/74962250/set-itemize-spacing-in-quarto-rmarkdown-pdf
+\apptocmd{\tightlist}{\setlength{\itemsep}{0pt}}{}{}
+\setlist{itemsep=50pt}
 
 %% HEADERS AND FOOTERS
 \usepackage{fancyhdr}
@@ -23,7 +31,7 @@
 \makeatother
 \rhead{}
 \cfoot{}
-\setlength{\headheight}{12pt}
+\setlength{\headheight}{15pt}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \fancypagestyle{plain}{%
@@ -47,6 +55,8 @@
 \renewcommand{\bottomfraction}{0.85}
 \renewcommand{\textfraction}{0.15}
 \renewcommand{\floatpagefraction}{0.8}
+
+\usepackage{float}
 
 %% COLOUR
 \long\def\usercol{

@@ -23,6 +23,7 @@ contributes:
       colorlinks: true
       fig-height: 5
       fig-width: 8
+      fig-pos: H
       number-sections: true
       number-depth: 3
       linestretch: 1.5
