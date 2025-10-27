@@ -94,6 +94,7 @@ Upon visual inspection of the time series plots in levels, all have an overall p
 
 
 ```{r}
+#| fig-pos: 'H'
 #| title: Plot ACFs
 #| layout-ncol: 2
 #| layout-nrow: 2
@@ -120,6 +121,7 @@ ACF(housingdata, appt_syd) |>
 
 
 ```{r}
+#| fig-pos: 'H'
 #| title: Plot PACFs
 #| layout-ncol: 2
 #| layout-nrow: 2
