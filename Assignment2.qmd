@@ -12,12 +12,7 @@ author:
   email: meva0009@student.monash.edu
 bibliography: references.bib
 format:
-  html:
-    execute:
-      echo: true
-    code-fold: true
-    code-line-numbers: true
-    code-copy: hover
+
   report-pdf:
     execute:
       echo: false
