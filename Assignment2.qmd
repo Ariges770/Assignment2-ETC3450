@@ -616,4 +616,22 @@ The long run equilibrium will restore itself through short run dynamics, thus sh
 
 # Impluse Response Analysis  
 
-## Impulse Response Plots for $\text{VAR}(1)$
+## Impulse Response Plots for $\text{VAR}(1)$  
+
+## PLOT GOES HERE  
+
+We found, through a series of tests, that all four series are I(1) and that there are no cointegrating relationships. Thus, a VAR on the first differences of the four series was modelled. The variables in the VAR therefore represent quarterly changes in prices; and the IRFs show how growth rates respond to shocks (short-run effects). 
+
+A VAR(1) model was used to compute IRFs with 95% bootstrap CIs and 100 replications, for shocks to apartment prices in both cities. 
+
+The ordering of the variables was opposite city houses, opposite city apartments, local city houses, local city apartments. However, it was determined that the ordering did not matter as the same conclusions were reached with other orders 
+
+ 
+
+AIC tests generally suggested lags above 10 were better, however we have relatively few observations (81) and a high number of variables (4), meaning this would create a highly complex model. Thus, VAR(1) was chosen for its parsimony and simplicity. 
+
+ 
+
+The sample horizon was chosen as 4 quarters as it was found that the effects of shocks only took one quarter to correct. Thus, to improve readability a period of 1 year was adequate. 
+
+Impulse responses in the VAR were based on orthogonalised shocks. They show how each variable in the VAR reacts over time to an unexpected shock in one of the other variables. These shocks are treated as separate, one-off disturbances to each market, i.e. an unexpected rise in Melbourne apartment prices – while holding other shocks constant. The responses show how property price growth adjusts following that disturbance. 
