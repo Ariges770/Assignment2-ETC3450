@@ -12,7 +12,12 @@ author:
   email: meva0009@student.monash.edu
 bibliography: references.bib
 format:
-
+  html:
+    execute:
+      echo: true
+    code-fold: true
+    code-line-numbers: true
+    code-copy: hover
   report-pdf:
     execute:
       echo: false
@@ -730,7 +735,7 @@ stationarity_summary |>
     caption = "Stationarity Test Results Summary",
     col.names = stationarity_summary |> 
       names() |>
-      imap(\(x, idx) ifelse(idx>1, paste0("\$\\texttt{", x, "}\$"), x))
+      imap(\(x, idx) ifelse(idx>1, paste0("$\\texttt{", x, "}$"), x))
   )
 ```   
 
@@ -809,7 +814,7 @@ data.frame(
     "Apartment prices and House prices in Syd" 
     ),
   "P Value" = c(hm_hs_p_val, am_as_p_val, am_hm_p_val, as_hs_p_val),
-  Result = rep("Failed to Reject \$H_0\$", 4)
+  Result = rep("Failed to Reject $H_0$", 4)
 ) |> 
   (\(table) knitr::kable(
     table,
@@ -864,7 +869,7 @@ housing_jo_summ <- housingdata |>
 
 
 data.frame(
-  Relationship = c("\$r\\leq 3\$", "\$r \\leq 2\$", "\$r\\leq 1\$", "\$r=0\$"),
+  Relationship = c("$r\\leq 3$", "$r \\leq 2$", "$r\\leq 1$", "$r=0$"),
   `Test Statistic` = pluck(housing_jo_summ, "teststat"),
   `Critical Value` = housing_jo_summ |>
     pluck("cval") |> 
@@ -875,7 +880,7 @@ data.frame(
   knitr::kable(
     digits = 2,
     caption = "Engle Granger Cointegration Test",
-    col.names = c("Relationship", "Test Statistic", "Critical Value (\$5\\%\$)", "Result")
+    col.names = c("Relationship", "Test Statistic", "Critical Value ($5\\%$)", "Result")
   )
 ```  
 
