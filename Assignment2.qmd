@@ -733,21 +733,9 @@ stationarity_summary |>
   knitr::kable(
     digits = 2,
     caption = "Stationarity Test Results Summary",
-    col.names = c("
-    $\\texttt{Metric}$",
-    $\\texttt{House\\_mel}$",
-    $\\texttt{Appt\\_mel}$",
-    $\\texttt{House\\_syd}$",
-    $\\texttt{Appt\\_syd}$"
-    )
-  )  
-stationarity_summary |> 
-  knitr::kable(
-    digits = 2,
-    caption = "Stationarity Test Results Summary",
     col.names = stationarity_summary |> 
       names() |>
-      imap(\(x, idx) ifelse(idx>1, paste0("$\\texttt{", x, "}$"), x))
+      imap(\(x, idx) ifelse(idx>1, paste0("$\\texttt{", x, "}$") |> str_replace_all(fixed("_"), fixed("\\_")), x))
   )
 ```   
 
