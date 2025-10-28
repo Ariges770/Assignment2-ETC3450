@@ -62,12 +62,10 @@ To guide the first steps, it must be determined whether the series mentioned are
 ### Time Series Plots  
 
 ```{r}
-#| fig-pos: 'ht'
+#| fig-pos: 'H'
 #| title: Plot data
 #| layout-ncol: 2
 #| layout-nrow: 2
-#| fig-height: 4
-#| fig-width: 6
 
 housingdata |> 
   ggplot(aes(x=date,y=house_mel)) +
@@ -96,12 +94,10 @@ Upon visual inspection of the time series plots in levels, all have an overall p
 
 
 ```{r}
-#| fig-pos: 'ht'
+#| fig-pos: 'H'
 #| title: Plot ACFs
 #| layout-ncol: 2
 #| layout-nrow: 2
-#| fig-height: 4
-#| fig-width: 6
 
 ACF(housingdata, house_mel) |>
   autoplot() +
@@ -125,12 +121,10 @@ ACF(housingdata, appt_syd) |>
 
 
 ```{r}
-#| fig-pos: 'ht'
+#| fig-pos: 'H'
 #| title: Plot PACFs
 #| layout-ncol: 2
 #| layout-nrow: 2
-#| fig-height: 4
-#| fig-width: 6
 
 PACF(housingdata, house_mel) |>
   autoplot() +
