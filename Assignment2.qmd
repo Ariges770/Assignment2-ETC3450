@@ -19,6 +19,8 @@ format:
     code-line-numbers: true
     code-copy: hover
   report-pdf:
+    fig-pos: h
+    fig-format: svg
     execute:
       echo: false
 toc: true
@@ -63,7 +65,6 @@ To guide the first steps, it must be determined whether the series mentioned are
 ### Time Series Plots  
 
 ```{r}
-#| fig-pos: '!h'
 #| layout-ncol: 2
 #| title: Plot data
 
@@ -76,13 +77,6 @@ housingdata |>
   ggplot(aes(x=date,y=appt_mel)) + 
     labs(x="Date", y="Price", title='Melbourne Median Apartment Prices Over Time') + 
     geom_line()
-```
-
-
-```{r}
-#| fig-pos: '!h'
-#| layout-ncol: 2
-#| title: Plot data
 
 housingdata |> 
   ggplot(aes(x=date,y=house_syd)) + 
@@ -101,7 +95,6 @@ Upon visual inspection of the time series plots in levels, all have an overall p
 
 
 ```{r}
-#| fig-pos: '!h'
 #| title: Plot ACFs
 #| layout-ncol: 2
 #| layout-nrow: 2
@@ -128,7 +121,6 @@ ACF(housingdata, appt_syd) |>
 
 
 ```{r}
-#| fig-pos: '!h'
 #| title: Plot PACFs
 #| layout-ncol: 2
 #| layout-nrow: 2
@@ -244,7 +236,7 @@ housingdata_diff <- housingdata |>
 ```
 
 ```{r}
-#| fig-pos: '!h'
+#| fig-pos: 'H'
 #| title: Plot data
 #| layout-ncol: 2
 #| layout-nrow: 2
@@ -275,7 +267,7 @@ The series of the first order differences looks stationary as there is a constan
 ## Differenced series ACF’s  
 
 ```{r}
-#| fig-pos: '!h'
+#| fig-pos: 'H'
 #| title: Plot differenced ACFs
 #| layout-ncol: 2
 #| layout-nrow: 2
@@ -305,7 +297,7 @@ housingdata_diff |>
 ## Differenced series PACF’s  
 
 ```{r}
-#| fig-pos: '!h'
+#| fig-pos: 'H'
 #| title: Plot differenced PACFs
 #| layout-ncol: 2
 #| layout-nrow: 2
