@@ -93,7 +93,6 @@ Upon visual inspection of the time series plots in levels, all have an overall p
 
 ### ACF's for Each Series  
 
-
 ```{r}
 #| title: Plot ACFs
 #| layout-ncol: 2
