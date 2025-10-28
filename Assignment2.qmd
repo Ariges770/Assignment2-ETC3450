@@ -20,7 +20,7 @@ format:
     code-copy: hover
   report-pdf:
     fig-pos: h
-    fig-format: svg
+    fig-format: retina
     execute:
       echo: false
 toc: true
