@@ -62,10 +62,9 @@ To guide the first steps, it must be determined whether the series mentioned are
 ### Time Series Plots  
 
 ```{r}
-#| fig-pos: 'H'
+#| layout: [[1,1], [1,1]]  # More explicit grid
+#| fig-pos: 'ht'
 #| title: Plot data
-#| layout-ncol: 2
-#| layout-nrow: 2
 
 housingdata |> 
   ggplot(aes(x=date,y=house_mel)) +
