@@ -285,7 +285,7 @@ window.Quarto = {
 <span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
 <span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot ACFs" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" title="Plot ACFs" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
@@ -321,7 +321,7 @@ window.Quarto = {
 <span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
 <span id="cb5-12"><a href="#cb5-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot PACFs" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" title="Plot PACFs" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
@@ -503,7 +503,7 @@ window.Quarto = {
 <span id="cb9-15"><a href="#cb9-15"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Differenced Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
 <span id="cb9-16"><a href="#cb9-16"></a>    <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot data" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" title="Plot data" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
@@ -545,7 +545,7 @@ window.Quarto = {
 <span id="cb10-15"><a href="#cb10-15"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
 <span id="cb10-16"><a href="#cb10-16"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Differenced Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot differenced ACFs" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" title="Plot differenced ACFs" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
@@ -585,7 +585,7 @@ window.Quarto = {
 <span id="cb11-15"><a href="#cb11-15"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
 <span id="cb11-16"><a href="#cb11-16"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Differenced Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot differenced PACFs" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" title="Plot differenced PACFs" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
@@ -1109,7 +1109,6 @@ y_t = c + \beta x_t + u_t
 <h2 class="anchored" data-anchor-id="what-if-we-used-a-different-model">What if we Used a Different Model?</h2>
 <section id="impulse-response-for-textvecm1" class="level3">
 <h3 class="anchored" data-anchor-id="impulse-response-for-textvecm1">Impulse Response for <span class="math inline">\(\text{VECM}(1)\)</span></h3>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>housing_coin <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
@@ -1129,31 +1128,23 @@ y_t = c + \beta x_t + u_t
 <span id="cb19-15"><a href="#cb19-15"></a>    <span class="at">n.ahead =</span> <span class="dv">4</span>,</span>
 <span id="cb19-16"><a href="#cb19-16"></a>    <span class="at">cumulative =</span> <span class="cn">TRUE</span></span>
 <span id="cb19-17"><a href="#cb19-17"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb19-18"><a href="#cb19-18"></a>  <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-18"><a href="#cb19-18"></a>  <span class="fu">plot</span>()</span>
+<span id="cb19-19"><a href="#cb19-19"></a>housing_vecm_model <span class="sc">|&gt;</span> </span>
+<span id="cb19-20"><a href="#cb19-20"></a>  <span class="fu">irf</span>(</span>
+<span id="cb19-21"><a href="#cb19-21"></a>    <span class="at">impulse =</span> <span class="st">"appt_mel"</span>,</span>
+<span id="cb19-22"><a href="#cb19-22"></a>    <span class="at">response =</span> <span class="fu">c</span>(<span class="st">"house_syd"</span>, <span class="st">"appt_syd"</span>, <span class="st">"house_mel"</span>, <span class="st">"appt_mel"</span>),</span>
+<span id="cb19-23"><a href="#cb19-23"></a>    <span class="at">n.ahead =</span> <span class="dv">4</span>,</span>
+<span id="cb19-24"><a href="#cb19-24"></a>    <span class="at">cumulative =</span> <span class="cn">TRUE</span></span>
+<span id="cb19-25"><a href="#cb19-25"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb19-26"><a href="#cb19-26"></a>  <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>housing_vecm_model <span class="sc">|&gt;</span> </span>
-<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">irf</span>(</span>
-<span id="cb20-3"><a href="#cb20-3"></a>    <span class="at">impulse =</span> <span class="st">"appt_mel"</span>,</span>
-<span id="cb20-4"><a href="#cb20-4"></a>    <span class="at">response =</span> <span class="fu">c</span>(<span class="st">"house_syd"</span>, <span class="st">"appt_syd"</span>, <span class="st">"house_mel"</span>, <span class="st">"appt_mel"</span>),</span>
-<span id="cb20-5"><a href="#cb20-5"></a>    <span class="at">n.ahead =</span> <span class="dv">4</span>,</span>
-<span id="cb20-6"><a href="#cb20-6"></a>    <span class="at">cumulative =</span> <span class="cn">TRUE</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>  <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>

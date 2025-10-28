@@ -718,6 +718,8 @@ The system seems stable, and the $\text{VAR}(1)$ is parsimonious and sufficient 
 ### Impulse Response for $\text{VECM}(1)$  
 
 ```{r}
+#| layout-ncol: 2
+
 housing_coin <- housingdata |> 
   tibble() |>
   dplyr::select(house_mel, appt_mel, house_syd, appt_syd) |>
