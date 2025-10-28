@@ -145,8 +145,22 @@ window.Quarto = {
   <li><a href="#impluse-response-analysis" id="toc-impluse-response-analysis" class="nav-link" data-scroll-target="#impluse-response-analysis">Impluse Response Analysis</a>
   <ul class="collapse">
   <li><a href="#impulse-response-plots-for-textvar1" id="toc-impulse-response-plots-for-textvar1" class="nav-link" data-scroll-target="#impulse-response-plots-for-textvar1">Impulse Response Plots for <span class="math inline">\(\text{VAR}(1)\)</span></a></li>
-  <li><a href="#plot-goes-here" id="toc-plot-goes-here" class="nav-link" data-scroll-target="#plot-goes-here">PLOT GOES HERE</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
+  <li><a href="#what-if-the-number-of-lags-was-changed" id="toc-what-if-the-number-of-lags-was-changed" class="nav-link" data-scroll-target="#what-if-the-number-of-lags-was-changed">What if the Number of Lags was Changed?</a>
+  <ul class="collapse">
+  <li><a href="#impulse-response-plots-for-textvar2" id="toc-impulse-response-plots-for-textvar2" class="nav-link" data-scroll-target="#impulse-response-plots-for-textvar2">Impulse Response Plots for <span class="math inline">\(\text{VAR}(2)\)</span></a></li>
   </ul></li>
+  <li><a href="#what-if-we-used-a-different-model" id="toc-what-if-we-used-a-different-model" class="nav-link" data-scroll-target="#what-if-we-used-a-different-model">What if we Used a Different Model?</a>
+  <ul class="collapse">
+  <li><a href="#impulse-response-for-textvecm1" id="toc-impulse-response-for-textvecm1" class="nav-link" data-scroll-target="#impulse-response-for-textvecm1">Impulse Response for <span class="math inline">\(\text{VECM}(1)\)</span></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#short-term-and-long-term-effects-of-the-policy" id="toc-short-term-and-long-term-effects-of-the-policy" class="nav-link" data-scroll-target="#short-term-and-long-term-effects-of-the-policy">Short-Term and Long-Term Effects of the Policy</a>
+  <ul class="collapse">
+  <li><a href="#short-term-1-quarter" id="toc-short-term-1-quarter" class="nav-link" data-scroll-target="#short-term-1-quarter">Short-Term (<span class="math inline">\(&lt;1\)</span> Quarter)</a></li>
+  <li><a href="#medium-to-long-term-effects-1-quarter" id="toc-medium-to-long-term-effects-1-quarter" class="nav-link" data-scroll-target="#medium-to-long-term-effects-1-quarter">Medium to Long-Term Effects (<span class="math inline">\(&gt;1\)</span> Quarter)</a></li>
+  </ul></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Assignment2.pdf"><i class="bi bi-file-pdf"></i>PDF (report)</a></li></ul></div></nav>
 </div>
@@ -234,7 +248,7 @@ window.Quarto = {
 <span id="cb3-15"><a href="#cb3-15"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
 <span id="cb3-16"><a href="#cb3-16"></a>    <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" title="Plot data" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot data">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
@@ -993,18 +1007,183 @@ y_t = c + \beta x_t + u_t
 </section>
 <section id="impluse-response-analysis" class="level1">
 <h1>Impluse Response Analysis</h1>
-<section id="impulse-response-plots-for-textvar1" class="level2">
-<h2 class="anchored" data-anchor-id="impulse-response-plots-for-textvar1">Impulse Response Plots for <span class="math inline">\(\text{VAR}(1)\)</span></h2>
+<section id="impulse-response-plots-for-textvar1" class="level3">
+<h3 class="anchored" data-anchor-id="impulse-response-plots-for-textvar1">Impulse Response Plots for <span class="math inline">\(\text{VAR}(1)\)</span></h3>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>var_housingdata <span class="ot">&lt;-</span> housingdata_diff <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a href="#cb17-3"></a>    <span class="at">d_house_mel =</span> house_mel,</span>
+<span id="cb17-4"><a href="#cb17-4"></a>    <span class="at">d_appt_mel =</span> appt_mel,</span>
+<span id="cb17-5"><a href="#cb17-5"></a>    <span class="at">d_house_syd =</span> house_syd,</span>
+<span id="cb17-6"><a href="#cb17-6"></a>    <span class="at">d_appt_syd =</span> appt_syd</span>
+<span id="cb17-7"><a href="#cb17-7"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a>  <span class="fu">tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(d_house_mel, d_appt_mel, d_house_syd, d_appt_syd)</span>
+<span id="cb17-10"><a href="#cb17-10"></a></span>
+<span id="cb17-11"><a href="#cb17-11"></a><span class="co"># Irf model p = 1</span></span>
+<span id="cb17-12"><a href="#cb17-12"></a>var_housing_model1 <span class="ot">&lt;-</span> var_housingdata <span class="sc">|&gt;</span></span>
+<span id="cb17-13"><a href="#cb17-13"></a>  <span class="fu">VAR</span>(<span class="at">p=</span><span class="dv">1</span>, <span class="at">type =</span> <span class="st">"const"</span>)</span>
+<span id="cb17-14"><a href="#cb17-14"></a>  </span>
+<span id="cb17-15"><a href="#cb17-15"></a>var_housing_model1 <span class="sc">|&gt;</span></span>
+<span id="cb17-16"><a href="#cb17-16"></a>  <span class="fu">irf</span>(</span>
+<span id="cb17-17"><a href="#cb17-17"></a>    <span class="at">impulse =</span> <span class="st">"d_appt_mel"</span>,  </span>
+<span id="cb17-18"><a href="#cb17-18"></a>    <span class="at">response =</span> <span class="fu">c</span>(<span class="st">"d_house_syd"</span>, <span class="st">"d_appt_syd"</span>, <span class="st">"d_house_mel"</span>, <span class="st">"d_appt_mel"</span>), </span>
+<span id="cb17-19"><a href="#cb17-19"></a>    <span class="at">n.ahead =</span> <span class="dv">4</span></span>
+<span id="cb17-20"><a href="#cb17-20"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb17-21"><a href="#cb17-21"></a>  <span class="fu">plot</span>()</span>
+<span id="cb17-22"><a href="#cb17-22"></a>var_housing_model1 <span class="sc">|&gt;</span></span>
+<span id="cb17-23"><a href="#cb17-23"></a>  <span class="fu">irf</span>(</span>
+<span id="cb17-24"><a href="#cb17-24"></a>    <span class="at">impulse =</span> <span class="st">"d_appt_syd"</span>,  </span>
+<span id="cb17-25"><a href="#cb17-25"></a>    <span class="at">response =</span> <span class="fu">c</span>(<span class="st">"d_house_syd"</span>, <span class="st">"d_appt_syd"</span>, <span class="st">"d_house_mel"</span>, <span class="st">"d_appt_mel"</span>), </span>
+<span id="cb17-26"><a href="#cb17-26"></a>    <span class="at">n.ahead =</span> <span class="dv">4</span></span>
+<span id="cb17-27"><a href="#cb17-27"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb17-28"><a href="#cb17-28"></a>  <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<p>We found, through a series of tests, that all four series are <span class="math inline">\(I(1)\)</span> and that there are no cointegrating relationships. Thus, a VAR on the first differences of the four series was modelled. The variables in the VAR therefore represent quarterly changes in prices; and the IRFs show how growth rates respond to shocks (short-run effects).</p>
+<p>A <span class="math inline">\(\text{VAR}(1)\)</span> model was used to compute IRFs with <span class="math inline">\(95\%\)</span> bootstrap CIs and 100 replications, for shocks to apartment prices in both cities.</p>
+<p>The ordering of the variables was opposite city houses, opposite city apartments, local city houses, local city apartments. However, it was determined that the ordering did not matter as the same conclusions were reached with other orders.</p>
+<p>AIC tests generally suggested lags above <span class="math inline">\(10\)</span> were better, however we have relatively few observations (81) and a high number of variables (4), meaning this would create a highly complex model. Thus, <span class="math inline">\(\text{VAR}(1)\)</span> was chosen for its parsimony and simplicity.</p>
+<p>The sample horizon was chosen as <span class="math inline">\(4\)</span> quarters as it was found that the effects of shocks only took one quarter to correct. Thus, to improve readability a period of <span class="math inline">\(1\)</span> year was adequate.</p>
+<p>Impulse responses in the VAR were based on orthogonalised shocks. They show how each variable in the VAR reacts over time to an unexpected shock in one of the other variables. These shocks are treated as separate, one-off disturbances to each market. For example, an unexpected rise in Melbourne apartment prices, while holding other shocks constant. The responses show how property price growth adjusts following that disturbance.</p>
 </section>
-<section id="plot-goes-here" class="level2">
-<h2 class="anchored" data-anchor-id="plot-goes-here">PLOT GOES HERE</h2>
-<p>We found, through a series of tests, that all four series are I(1) and that there are no cointegrating relationships. Thus, a VAR on the first differences of the four series was modelled. The variables in the VAR therefore represent quarterly changes in prices; and the IRFs show how growth rates respond to shocks (short-run effects).</p>
-<p>A VAR(1) model was used to compute IRFs with 95% bootstrap CIs and 100 replications, for shocks to apartment prices in both cities.</p>
-<p>The ordering of the variables was opposite city houses, opposite city apartments, local city houses, local city apartments. However, it was determined that the ordering did not matter as the same conclusions were reached with other orders</p>
-<p>AIC tests generally suggested lags above 10 were better, however we have relatively few observations (81) and a high number of variables (4), meaning this would create a highly complex model. Thus, VAR(1) was chosen for its parsimony and simplicity.</p>
-<p>The sample horizon was chosen as 4 quarters as it was found that the effects of shocks only took one quarter to correct. Thus, to improve readability a period of 1 year was adequate.</p>
-<p>Impulse responses in the VAR were based on orthogonalised shocks. They show how each variable in the VAR reacts over time to an unexpected shock in one of the other variables. These shocks are treated as separate, one-off disturbances to each market, i.e.&nbsp;an unexpected rise in Melbourne apartment prices – while holding other shocks constant. The responses show how property price growth adjusts following that disturbance.</p>
+<section id="key-findings" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings">Key Findings</h3>
+<p>Regarding the impulse response functions, it is important to note that the effect will be the opposite sign, as the policy will create a negative shock while the IRF’s only show the effect of a positive shock.</p>
+<p>A one standard deviation negative shock to Melbourne apartment price changes produces a negative immediate response in Melbourne apartment prices. This effect dissipates after one quarter. For Melbourne house prices the reaction is statistically insignificant, likely due to buyers not immediately switching between properties due to a shock in one. Reasons likely being costs, locations, and target demographics. For Sydney markets the response is also insignificant, likely due to differences and distance between states.</p>
+<p>A one standard deviation negative shock to Sydney apartment price changes produces no response in Sydney houses, likely due to the previously mentioned reasons about buyers not immediately switching from buying houses to apartments. The biggest response is to its own market, as this shock causes an immediate fall in Sydney apartment prices which then dissipates after a quarter.</p>
+<p>Overall, the spillovers across cities and housing types are small and short-lived, the stronger responses are for the own variable, which is consistent with findings of no long-run cointegrating relationships.</p>
 </section>
+<section id="what-if-the-number-of-lags-was-changed" class="level2">
+<h2 class="anchored" data-anchor-id="what-if-the-number-of-lags-was-changed">What if the Number of Lags was Changed?</h2>
+<section id="impulse-response-plots-for-textvar2" class="level3">
+<h3 class="anchored" data-anchor-id="impulse-response-plots-for-textvar2">Impulse Response Plots for <span class="math inline">\(\text{VAR}(2)\)</span></h3>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Irf model p = 2</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>var_housing_model2 <span class="ot">&lt;-</span> var_housingdata <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">VAR</span>(<span class="at">p=</span><span class="dv">2</span>, <span class="at">type =</span> <span class="st">"const"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4"></a></span>
+<span id="cb18-5"><a href="#cb18-5"></a>var_housing_model2 <span class="sc">|&gt;</span> </span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">irf</span>(</span>
+<span id="cb18-7"><a href="#cb18-7"></a>    <span class="at">impulse =</span> <span class="st">"d_appt_mel"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>    <span class="at">response =</span> <span class="fu">c</span>(<span class="st">"d_house_syd"</span>, <span class="st">"d_appt_syd"</span>, <span class="st">"d_house_mel"</span>, <span class="st">"d_appt_mel"</span>), </span>
+<span id="cb18-9"><a href="#cb18-9"></a>    <span class="at">n.ahead =</span> <span class="dv">4</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb18-11"><a href="#cb18-11"></a>  <span class="fu">plot</span>() </span>
+<span id="cb18-12"><a href="#cb18-12"></a>var_housing_model2 <span class="sc">|&gt;</span> </span>
+<span id="cb18-13"><a href="#cb18-13"></a>  <span class="fu">irf</span>(</span>
+<span id="cb18-14"><a href="#cb18-14"></a>    <span class="at">impulse =</span> <span class="st">"d_appt_syd"</span>,</span>
+<span id="cb18-15"><a href="#cb18-15"></a>    <span class="at">response =</span> <span class="fu">c</span>(<span class="st">"d_house_syd"</span>, <span class="st">"d_appt_syd"</span>, <span class="st">"d_house_mel"</span>, <span class="st">"d_appt_mel"</span>), </span>
+<span id="cb18-16"><a href="#cb18-16"></a>    <span class="at">n.ahead =</span> <span class="dv">4</span></span>
+<span id="cb18-17"><a href="#cb18-17"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb18-18"><a href="#cb18-18"></a>  <span class="fu">plot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<p>Moving from <span class="math inline">\(\text{VAR}(1)\)</span> to <span class="math inline">\(\text{VAR}(2)\)</span> didn’t significantly alter the impulse response functions. The biggest shock was still to the same variable, i.e.&nbsp;a shock to Melbourne apartments will have the biggest effect on its own series. The shocks to other series were still insignificant.</p>
+<p>This suggests that most of the dynamics were captured within one lag. The housing markets respond mainly to recent changes and including an extra lag doesn’t add new information.</p>
+<p>Once the series are differenced to achieve stationarity, price changes don’t strongly depend on changes two quarters ago.</p>
+<p>The system seems stable, and the <span class="math inline">\(\text{VAR}(1)\)</span> is parsimonious and sufficient for the sample size. This is further demonstrated by the ACF’s of the residuals of the <span class="math inline">\(\text{VAR}(2)\)</span>, which has a spike at lag 1 then quickly declines to 0, indicating little persistence beyond one quarter and not much serial correlation.</p>
+</section>
+</section>
+<section id="what-if-we-used-a-different-model" class="level2">
+<h2 class="anchored" data-anchor-id="what-if-we-used-a-different-model">What if we Used a Different Model?</h2>
+<section id="impulse-response-for-textvecm1" class="level3">
+<h3 class="anchored" data-anchor-id="impulse-response-for-textvecm1">Impulse Response for <span class="math inline">\(\text{VECM}(1)\)</span></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>housing_coin <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(house_mel, appt_mel, house_syd, appt_syd) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">ca.jo</span>(<span class="at">ecdet =</span> <span class="st">"const"</span>, <span class="at">type=</span><span class="st">"eigen"</span>, <span class="at">K =</span> <span class="dv">2</span>, <span class="at">spec=</span><span class="st">"longrun"</span>, <span class="at">season=</span><span class="dv">4</span>)</span>
+<span id="cb19-5"><a href="#cb19-5"></a></span>
+<span id="cb19-6"><a href="#cb19-6"></a></span>
+<span id="cb19-7"><a href="#cb19-7"></a>housing_vecm_model <span class="ot">&lt;-</span> housing_coin <span class="sc">|&gt;</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>  <span class="fu">vec2var</span>(<span class="at">r =</span> <span class="dv">1</span>)</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a></span>
+<span id="cb19-11"><a href="#cb19-11"></a>housing_vecm_model <span class="sc">|&gt;</span> </span>
+<span id="cb19-12"><a href="#cb19-12"></a>  <span class="fu">irf</span>(</span>
+<span id="cb19-13"><a href="#cb19-13"></a>    <span class="at">impulse =</span> <span class="st">"appt_syd"</span>,</span>
+<span id="cb19-14"><a href="#cb19-14"></a>    <span class="at">response =</span> <span class="fu">c</span>(<span class="st">"house_mel"</span>, <span class="st">"appt_mel"</span>, <span class="st">"house_syd"</span>, <span class="st">"appt_syd"</span>),</span>
+<span id="cb19-15"><a href="#cb19-15"></a>    <span class="at">n.ahead =</span> <span class="dv">4</span>,</span>
+<span id="cb19-16"><a href="#cb19-16"></a>    <span class="at">cumulative =</span> <span class="cn">TRUE</span></span>
+<span id="cb19-17"><a href="#cb19-17"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a>  <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>housing_vecm_model <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">irf</span>(</span>
+<span id="cb20-3"><a href="#cb20-3"></a>    <span class="at">impulse =</span> <span class="st">"appt_mel"</span>,</span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="at">response =</span> <span class="fu">c</span>(<span class="st">"house_syd"</span>, <span class="st">"appt_syd"</span>, <span class="st">"house_mel"</span>, <span class="st">"appt_mel"</span>),</span>
+<span id="cb20-5"><a href="#cb20-5"></a>    <span class="at">n.ahead =</span> <span class="dv">4</span>,</span>
+<span id="cb20-6"><a href="#cb20-6"></a>    <span class="at">cumulative =</span> <span class="cn">TRUE</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a>  <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Changing the number of lags in the Johansen test from <span class="math inline">\(2\)</span> to <span class="math inline">\(3\)</span> gave a result of one cointegrating relationship at the <span class="math inline">\(5\%\)</span> level. Though this would usually mean sufficient evidence, the facts that the test barely passes at this level and that the Engle-Granger tests suggested no cointegrating relationships, this is not the main model for analysis. If there is a cointegrating relationship, then a VECM is much more appropriate than a VAR model as it can account for a long-run equilibrium.</p>
+<p>Cumulative IRF’s can display long run relationships and equilibrium better than non-cumulative IRF’s, which is why they are used here.</p>
+<p>From the cumulative IRF’s, once again the most significant change is to the variable’s own series. A shock to Sydney apartments leads to a gradual but persistent rise in Sydney apartment prices, with this being the same for a Melbourne apartment shock. The fact that the cumulative lines don’t flatten out means that the long-run equilibrium relationship is weak or slow. The model behaves like a VAR, which is the model the further analysis is based on.</p>
+<p>Effects are insignificant on other markets, which matches the earlier findings. These IRF’s reinforce that the short-run dynamics are limited and local.</p>
+</section>
+</section>
+</section>
+<section id="short-term-and-long-term-effects-of-the-policy" class="level1">
+<h1>Short-Term and Long-Term Effects of the Policy</h1>
+<section id="short-term-1-quarter" class="level2">
+<h2 class="anchored" data-anchor-id="short-term-1-quarter">Short-Term (<span class="math inline">\(&lt;1\)</span> Quarter)</h2>
+<p>The rezoning policy is aimed at increasing the supply of apartments, thus creating a negative shock to apartment prices in Melbourne and Sydney.</p>
+<p>This policy will cause an immediate decline in apartment prices; however, this is very transitory. The effect will dissipate within a quarter. The policy changes growth rates briefly but the effect fades quickly.</p>
+<p>There are also negligible spillovers. There is no statistically significant immediate effect on local house prices or opposite-city property markets. Short run price falls in apartments do not translate into cross-market or cross-city transmissions in the quarters after the shock.</p>
+<p>If the policy’s goal is a short, fast fall in prices then it may work, but only briefly and only in the targeted market.</p>
+</section>
+<section id="medium-to-long-term-effects-1-quarter" class="level2">
+<h2 class="anchored" data-anchor-id="medium-to-long-term-effects-1-quarter">Medium to Long-Term Effects (<span class="math inline">\(&gt;1\)</span> Quarter)</h2>
+<p>As the Johansen and Engle Granger tests found no cointegration, and the IRF’s dissipate quickly, the shock does not produce a lasting change in the relative levels of prices across markets.</p>
+<p>The absence of cointegration implies the markets do not revert to a new joint equilibrium following the shock, local levels return to their prior paths rather than settling at a new equilibrium.</p>
+<p>If the objective is a sustained or structural change in the housing system, eg. permanently higher affordability, then a one off shock is insignificant. Persistent interventions such as tax reforms or land-use policy reforms would be required.</p>
+<p>These conclusions are the same for all 3 models used.</p>
+</section>
+</section>
+<section id="limitations" class="level1">
+<h1>Limitations</h1>
+<p>An issue with this analysis is the small sample size. The data covers quarterly prices from <span class="math inline">\(2003\)</span> to <span class="math inline">\(2025\)</span>, which has fewer statistical power than higher frequency data such as monthly data. Monthly data will also allow a monthly analysis of IRF’s to see exactly how long shocks persist rather than quarter-by-quarter predictions.</p>
 </section>
 
 </main>

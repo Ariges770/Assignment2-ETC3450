@@ -615,22 +615,170 @@ The long run equilibrium will restore itself through short run dynamics, thus sh
 
 # Impluse Response Analysis  
 
-## Impulse Response Plots for $\text{VAR}(1)$  
+### Impulse Response Plots for $\text{VAR}(1)$  
 
-## PLOT GOES HERE  
+```{r}
+#| layout-ncol: 2
 
-We found, through a series of tests, that all four series are I(1) and that there are no cointegrating relationships. Thus, a VAR on the first differences of the four series was modelled. The variables in the VAR therefore represent quarterly changes in prices; and the IRFs show how growth rates respond to shocks (short-run effects). 
+var_housingdata <- housingdata_diff |>
+  mutate(
+    d_house_mel = house_mel,
+    d_appt_mel = appt_mel,
+    d_house_syd = house_syd,
+    d_appt_syd = appt_syd
+  ) |>
+  tibble() |>
+  dplyr::select(d_house_mel, d_appt_mel, d_house_syd, d_appt_syd)
 
-A VAR(1) model was used to compute IRFs with 95% bootstrap CIs and 100 replications, for shocks to apartment prices in both cities. 
+# Irf model p = 1
+var_housing_model1 <- var_housingdata |>
+  VAR(p=1, type = "const")
+  
+var_housing_model1 |>
+  irf(
+    impulse = "d_appt_mel",  
+    response = c("d_house_syd", "d_appt_syd", "d_house_mel", "d_appt_mel"), 
+    n.ahead = 4
+  ) |>
+  plot()
+var_housing_model1 |>
+  irf(
+    impulse = "d_appt_syd",  
+    response = c("d_house_syd", "d_appt_syd", "d_house_mel", "d_appt_mel"), 
+    n.ahead = 4
+  ) |>
+  plot()
+```
 
-The ordering of the variables was opposite city houses, opposite city apartments, local city houses, local city apartments. However, it was determined that the ordering did not matter as the same conclusions were reached with other orders 
+We found, through a series of tests, that all four series are $I(1)$ and that there are no cointegrating relationships. Thus, a VAR on the first differences of the four series was modelled. The variables in the VAR therefore represent quarterly changes in prices; and the IRFs show how growth rates respond to shocks (short-run effects). 
 
+A $\text{VAR}(1)$ model was used to compute IRFs with $95\%$ bootstrap CIs and 100 replications, for shocks to apartment prices in both cities.  
+
+The ordering of the variables was opposite city houses, opposite city apartments, local city houses, local city apartments. However, it was determined that the ordering did not matter as the same conclusions were reached with other orders.  
  
 
-AIC tests generally suggested lags above 10 were better, however we have relatively few observations (81) and a high number of variables (4), meaning this would create a highly complex model. Thus, VAR(1) was chosen for its parsimony and simplicity. 
+AIC tests generally suggested lags above $10$ were better, however we have relatively few observations (81) and a high number of variables (4), meaning this would create a highly complex model. Thus, $\text{VAR}(1)$ was chosen for its parsimony and simplicity. 
 
- 
 
-The sample horizon was chosen as 4 quarters as it was found that the effects of shocks only took one quarter to correct. Thus, to improve readability a period of 1 year was adequate. 
 
-Impulse responses in the VAR were based on orthogonalised shocks. They show how each variable in the VAR reacts over time to an unexpected shock in one of the other variables. These shocks are treated as separate, one-off disturbances to each market, i.e. an unexpected rise in Melbourne apartment prices – while holding other shocks constant. The responses show how property price growth adjusts following that disturbance. 
+The sample horizon was chosen as $4$ quarters as it was found that the effects of shocks only took one quarter to correct. Thus, to improve readability a period of $1$ year was adequate. 
+
+Impulse responses in the VAR were based on orthogonalised shocks. They show how each variable in the VAR reacts over time to an unexpected shock in one of the other variables. These shocks are treated as separate, one-off disturbances to each market. For example, an unexpected rise in Melbourne apartment prices, while holding other shocks constant. The responses show how property price growth adjusts following that disturbance.  
+
+### Key Findings  
+
+Regarding the impulse response functions, it is important to note that the effect will be the opposite sign, as the policy will create a negative shock while the IRF’s only show the effect of a positive shock. 
+
+A one standard deviation negative shock to Melbourne apartment price changes produces a negative immediate response in Melbourne apartment prices. This effect dissipates after one quarter. For Melbourne house prices the reaction is statistically insignificant, likely due to buyers not immediately switching between properties due to a shock in one. Reasons likely being costs, locations, and target demographics. For Sydney markets the response is also insignificant, likely due to differences and distance between states.  
+
+
+A one standard deviation negative shock to Sydney apartment price changes produces no response in Sydney houses, likely due to the previously mentioned reasons about buyers not immediately switching from buying houses to apartments. The biggest response is to its own market, as this shock causes an immediate fall in Sydney apartment prices which then dissipates after a quarter.  
+
+Overall, the spillovers across cities and housing types are small and short-lived, the stronger responses are for the own variable, which is consistent with findings of no long-run cointegrating relationships. 
+
+## What if the Number of Lags was Changed?  
+
+### Impulse Response Plots for $\text{VAR}(2)$  
+
+
+```{r}
+#| layout-ncol: 2
+
+# Irf model p = 2
+var_housing_model2 <- var_housingdata |>
+  VAR(p=2, type = "const")
+
+var_housing_model2 |> 
+  irf(
+    impulse = "d_appt_mel",
+    response = c("d_house_syd", "d_appt_syd", "d_house_mel", "d_appt_mel"), 
+    n.ahead = 4
+  ) |> 
+  plot() 
+
+var_housing_model2 |> 
+  irf(
+    impulse = "d_appt_syd",
+    response = c("d_house_syd", "d_appt_syd", "d_house_mel", "d_appt_mel"), 
+    n.ahead = 4
+  ) |> 
+  plot() 
+```  
+
+Moving from $\text{VAR}(1)$ to $\text{VAR}(2)$ didn’t significantly alter the impulse response functions. The biggest shock was still to the same variable, i.e. a shock to Melbourne apartments will have the biggest effect on its own series. The shocks to other series were still insignificant.  
+
+This suggests that most of the dynamics were captured within one lag. The housing markets respond mainly to recent changes and including an extra lag doesn’t add new information.  
+
+Once the series are differenced to achieve stationarity, price changes don’t strongly depend on changes two quarters ago.  
+
+The system seems stable, and the $\text{VAR}(1)$ is parsimonious and sufficient for the sample size. This is further demonstrated by the ACF’s of the residuals of the $\text{VAR}(2)$, which has a spike at lag 1 then quickly declines to 0, indicating little persistence beyond one quarter and not much serial correlation.  
+
+## What if we Used a Different Model?  
+
+### Impulse Response for $\text{VECM}(1)$  
+
+```{r}
+housing_coin <- housingdata |> 
+  tibble() |>
+  dplyr::select(house_mel, appt_mel, house_syd, appt_syd) |>
+  ca.jo(ecdet = "const", type="eigen", K = 2, spec="longrun", season=4)
+
+
+housing_vecm_model <- housing_coin |>
+  vec2var(r = 1)
+
+
+housing_vecm_model |> 
+  irf(
+    impulse = "appt_syd",
+    response = c("house_mel", "appt_mel", "house_syd", "appt_syd"),
+    n.ahead = 4,
+    cumulative = TRUE
+  ) |>
+  plot()
+
+
+housing_vecm_model |> 
+  irf(
+    impulse = "appt_mel",
+    response = c("house_syd", "appt_syd", "house_mel", "appt_mel"),
+    n.ahead = 4,
+    cumulative = TRUE
+  ) |>
+  plot()
+```  
+
+
+Changing the number of lags in the Johansen test from $2$ to $3$ gave a result of one cointegrating relationship at the $5\%$ level. Though this would usually mean sufficient evidence, the facts that the test barely passes at this level and that the Engle-Granger tests suggested no cointegrating relationships, this is not the main model for analysis. If there is a cointegrating relationship, then a VECM is much more appropriate than a VAR model as it can account for a long-run equilibrium. 
+
+Cumulative IRF’s can display long run relationships and equilibrium better than non-cumulative IRF’s, which is why they are used here. 
+
+From the cumulative IRF’s, once again the most significant change is to the variable’s own series. A shock to Sydney apartments leads to a gradual but persistent rise in Sydney apartment prices, with this being the same for a Melbourne apartment shock. The fact that the cumulative lines don’t flatten out means that the long-run equilibrium relationship is weak or slow. The model behaves like a VAR, which is the model the further analysis is based on. 
+
+Effects are insignificant on other markets, which matches the earlier findings. These IRF’s reinforce that the short-run dynamics are limited and local.  
+
+# Short-Term and Long-Term Effects of the Policy  
+
+## Short-Term ($<1$ Quarter)  
+
+The rezoning policy is aimed at increasing the supply of apartments, thus creating a negative shock to apartment prices in Melbourne and Sydney. 
+
+This policy will cause an immediate decline in apartment prices; however, this is very transitory. The effect will dissipate within a quarter. The policy changes growth rates briefly but the effect fades quickly. 
+
+There are also negligible spillovers. There is no statistically significant immediate effect on local house prices or opposite-city property markets. Short run price falls in apartments do not translate into cross-market or cross-city transmissions in the quarters after the shock. 
+
+If the policy’s goal is a short, fast fall in prices then it may work, but only briefly and only in the targeted market.  
+
+## Medium to Long-Term Effects ($>1$ Quarter)  
+
+As the Johansen and Engle Granger tests found no cointegration, and the IRF’s dissipate quickly, the shock does not produce a lasting change in the relative levels of prices across markets.  
+
+The absence of cointegration implies the markets do not revert to a new joint equilibrium following the shock, local levels return to their prior paths rather than settling at a new equilibrium. 
+
+If the objective is a sustained or structural change in the housing system, eg. permanently higher affordability, then a one off shock is insignificant. Persistent interventions such as tax reforms or land-use policy reforms would be required. 
+
+These conclusions are the same for all 3 models used.  
+
+# Limitations  
+
+An issue with this analysis is the small sample size. The data covers quarterly prices from $2003$ to $2025$, which has fewer statistical power than higher frequency data such as monthly data. Monthly data will also allow a monthly analysis of IRF’s to see exactly how long shocks persist rather than quarter-by-quarter predictions.  
