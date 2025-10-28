@@ -224,31 +224,36 @@ window.Quarto = {
 <span id="cb3-5"><a href="#cb3-5"></a>housingdata <span class="sc">|&gt;</span> </span>
 <span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>appt_mel)) <span class="sc">+</span> </span>
 <span id="cb3-7"><a href="#cb3-7"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Melbourne Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
-<span id="cb3-8"><a href="#cb3-8"></a>    <span class="fu">geom_line</span>()</span>
-<span id="cb3-9"><a href="#cb3-9"></a>housingdata <span class="sc">|&gt;</span> </span>
-<span id="cb3-10"><a href="#cb3-10"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>house_syd)) <span class="sc">+</span> </span>
-<span id="cb3-11"><a href="#cb3-11"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Median House Prices Over Time'</span>) <span class="sc">+</span> </span>
-<span id="cb3-12"><a href="#cb3-12"></a>    <span class="fu">geom_line</span>()</span>
-<span id="cb3-13"><a href="#cb3-13"></a>housingdata <span class="sc">|&gt;</span> </span>
-<span id="cb3-14"><a href="#cb3-14"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>appt_syd)) <span class="sc">+</span> </span>
-<span id="cb3-15"><a href="#cb3-15"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
-<span id="cb3-16"><a href="#cb3-16"></a>    <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" title="Plot data" data-layout="[[1,1],[1,1]]">
+<div class="cell quarto-layout-panel" title="Plot data" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" data-fig-pos="ht" width="672"></p>
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" data-fig-pos="ht" width="672"></p>
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" data-fig-pos="H" width="672"></p>
 </div>
 </div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>housingdata <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>house_syd)) <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Median House Prices Over Time'</span>) <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="fu">geom_line</span>()</span>
+<span id="cb4-5"><a href="#cb4-5"></a>housingdata <span class="sc">|&gt;</span> </span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>appt_syd)) <span class="sc">+</span> </span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell quarto-layout-panel" title="Plot data" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" data-fig-pos="ht" width="672"></p>
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-3-4.png" class="img-fluid" data-fig-pos="ht" width="672"></p>
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" data-fig-pos="H" width="672"></p>
 </div>
 </div>
 </div>
@@ -258,56 +263,20 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="acfs-for-each-series">ACF’s for Each Series</h3>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ACF</span>(housingdata, house_mel) <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Melbourne Housing data"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">ACF</span>(housingdata, appt_mel) <span class="sc">|&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Melbourne Apartment data"</span>)</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">ACF</span>(housingdata, house_syd) <span class="sc">|&gt;</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Sydney Housing data"</span>)</span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="fu">ACF</span>(housingdata, appt_syd) <span class="sc">|&gt;</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot ACFs" data-layout-nrow="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" data-fig-pos="H" width="672"></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" data-fig-pos="H" width="672"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid" data-fig-pos="H" width="672"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="pacfs-for-each-series" class="level3">
-<h3 class="anchored" data-anchor-id="pacfs-for-each-series">PACF’s for Each Series</h3>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">PACF</span>(housingdata, house_mel) <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ACF</span>(housingdata, house_mel) <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Melbourne Housing data"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">PACF</span>(housingdata, appt_mel) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Melbourne Housing data"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">ACF</span>(housingdata, appt_mel) <span class="sc">|&gt;</span></span>
 <span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Melbourne Apartment data"</span>)</span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">PACF</span>(housingdata, house_syd) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Melbourne Apartment data"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">ACF</span>(housingdata, house_syd) <span class="sc">|&gt;</span></span>
 <span id="cb5-8"><a href="#cb5-8"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Sydney Housing data"</span>)</span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="fu">PACF</span>(housingdata, appt_syd) <span class="sc">|&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Sydney Housing data"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="fu">ACF</span>(housingdata, appt_syd) <span class="sc">|&gt;</span></span>
 <span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-12"><a href="#cb5-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot PACFs" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" title="Plot ACFs" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
@@ -325,6 +294,42 @@ window.Quarto = {
 </div>
 </div>
 </div>
+</section>
+<section id="pacfs-for-each-series" class="level3">
+<h3 class="anchored" data-anchor-id="pacfs-for-each-series">PACF’s for Each Series</h3>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">PACF</span>(housingdata, house_mel) <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Melbourne Housing data"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">PACF</span>(housingdata, appt_mel) <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Melbourne Apartment data"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="fu">PACF</span>(housingdata, house_syd) <span class="sc">|&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Sydney Housing data"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="fu">PACF</span>(housingdata, appt_syd) <span class="sc">|&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell quarto-layout-panel" title="Plot PACFs" data-layout-nrow="2" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" data-fig-pos="H" width="672"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid" data-fig-pos="H" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-6-4.png" class="img-fluid" data-fig-pos="H" width="672"></p>
+</div>
+</div>
+</div>
 <p>The ACF’s for all series decay very slowly toward zero, which is characteristic of non-stationary processes such as those with unit roots. This suggests that shocks to the series have persistent effects, and that future values are correlated with past values. This makes intuitive sense for housing prices as they tend to evolve gradually over time rather than fluctuating randomly from period to period, as housing markets exhibit strong inertia and adjustment frictions, such as regulatory and supply constraints.</p>
 <p>The PACF’s for all series have spikes at the first lag and quickly drop off, suggesting strong dependence on only the observation immediately before. This suggests most of the residual correlation is captured by the first lag which is consistent with a unit root. The spike at the first lag indicates that the series likely becomes stationary after taking first differences, which will remove the unit root. This is typical of housing price data as changes in prices are gradual and are strongly influenced by more recent movements.</p>
 </section>
@@ -333,68 +338,68 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># ADF test (hm_ stands for homes melbourne)</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>hm_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata<span class="sc">$</span>house_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
-<span id="cb6-3"><a href="#cb6-3"></a>hm_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(hm_adf_result)</span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a>hm_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
-<span id="cb6-6"><a href="#cb6-6"></a>hm_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#KPSS test</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a>hm_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata<span class="sc">$</span>house_mel))</span>
-<span id="cb6-10"><a href="#cb6-10"></a>hm_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
-<span id="cb6-11"><a href="#cb6-11"></a></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co"># ADF test (am_ stands for apartments melbourne)</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a>am_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata<span class="sc">$</span>appt_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
-<span id="cb6-14"><a href="#cb6-14"></a>am_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(am_adf_result)</span>
-<span id="cb6-15"><a href="#cb6-15"></a></span>
-<span id="cb6-16"><a href="#cb6-16"></a>am_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(am_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
-<span id="cb6-17"><a href="#cb6-17"></a>am_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(am_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
-<span id="cb6-18"><a href="#cb6-18"></a></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="co">#KPSS test</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a>am_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata<span class="sc">$</span>appt_mel))</span>
-<span id="cb6-21"><a href="#cb6-21"></a>am_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(am_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
-<span id="cb6-22"><a href="#cb6-22"></a></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="co"># ADF test (hs_ stands for houses sydney)</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a>hs_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata<span class="sc">$</span>house_syd, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
-<span id="cb6-25"><a href="#cb6-25"></a>hs_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(hs_adf_result)</span>
-<span id="cb6-26"><a href="#cb6-26"></a></span>
-<span id="cb6-27"><a href="#cb6-27"></a>hs_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
-<span id="cb6-28"><a href="#cb6-28"></a>hs_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
-<span id="cb6-29"><a href="#cb6-29"></a></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="co">#KPSS test</span></span>
-<span id="cb6-31"><a href="#cb6-31"></a>hs_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata<span class="sc">$</span>house_syd))</span>
-<span id="cb6-32"><a href="#cb6-32"></a>hs_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
-<span id="cb6-33"><a href="#cb6-33"></a></span>
-<span id="cb6-34"><a href="#cb6-34"></a><span class="co"># ADF test (as_ stands for apartments sydney)</span></span>
-<span id="cb6-35"><a href="#cb6-35"></a>as_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata<span class="sc">$</span>appt_syd, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
-<span id="cb6-36"><a href="#cb6-36"></a>as_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(as_adf_result)</span>
-<span id="cb6-37"><a href="#cb6-37"></a></span>
-<span id="cb6-38"><a href="#cb6-38"></a>as_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(as_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
-<span id="cb6-39"><a href="#cb6-39"></a>as_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(as_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
-<span id="cb6-40"><a href="#cb6-40"></a></span>
-<span id="cb6-41"><a href="#cb6-41"></a><span class="co">#KPSS test</span></span>
-<span id="cb6-42"><a href="#cb6-42"></a>as_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata<span class="sc">$</span>appt_syd))</span>
-<span id="cb6-43"><a href="#cb6-43"></a>as_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(as_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># ADF test (hm_ stands for homes melbourne)</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>hm_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata<span class="sc">$</span>house_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
+<span id="cb7-3"><a href="#cb7-3"></a>hm_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(hm_adf_result)</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a>hm_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb7-6"><a href="#cb7-6"></a>hm_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#KPSS test</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>hm_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata<span class="sc">$</span>house_mel))</span>
+<span id="cb7-10"><a href="#cb7-10"></a>hm_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co"># ADF test (am_ stands for apartments melbourne)</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>am_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata<span class="sc">$</span>appt_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
+<span id="cb7-14"><a href="#cb7-14"></a>am_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(am_adf_result)</span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a>am_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(am_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb7-17"><a href="#cb7-17"></a>am_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(am_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co">#KPSS test</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a>am_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata<span class="sc">$</span>appt_mel))</span>
+<span id="cb7-21"><a href="#cb7-21"></a>am_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(am_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="co"># ADF test (hs_ stands for houses sydney)</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a>hs_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata<span class="sc">$</span>house_syd, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
+<span id="cb7-25"><a href="#cb7-25"></a>hs_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(hs_adf_result)</span>
+<span id="cb7-26"><a href="#cb7-26"></a></span>
+<span id="cb7-27"><a href="#cb7-27"></a>hs_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb7-28"><a href="#cb7-28"></a>hs_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
+<span id="cb7-29"><a href="#cb7-29"></a></span>
+<span id="cb7-30"><a href="#cb7-30"></a><span class="co">#KPSS test</span></span>
+<span id="cb7-31"><a href="#cb7-31"></a>hs_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata<span class="sc">$</span>house_syd))</span>
+<span id="cb7-32"><a href="#cb7-32"></a>hs_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
+<span id="cb7-33"><a href="#cb7-33"></a></span>
+<span id="cb7-34"><a href="#cb7-34"></a><span class="co"># ADF test (as_ stands for apartments sydney)</span></span>
+<span id="cb7-35"><a href="#cb7-35"></a>as_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata<span class="sc">$</span>appt_syd, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
+<span id="cb7-36"><a href="#cb7-36"></a>as_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(as_adf_result)</span>
+<span id="cb7-37"><a href="#cb7-37"></a></span>
+<span id="cb7-38"><a href="#cb7-38"></a>as_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(as_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb7-39"><a href="#cb7-39"></a>as_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(as_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
+<span id="cb7-40"><a href="#cb7-40"></a></span>
+<span id="cb7-41"><a href="#cb7-41"></a><span class="co">#KPSS test</span></span>
+<span id="cb7-42"><a href="#cb7-42"></a>as_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata<span class="sc">$</span>appt_syd))</span>
+<span id="cb7-43"><a href="#cb7-43"></a>as_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(as_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Create summary table of stationarity tests</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>stationarity_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb7-3"><a href="#cb7-3"></a>  <span class="at">Metric =</span> <span class="fu">c</span>(<span class="st">"ADF Test Stat"</span>, <span class="st">"ADF Result"</span>, <span class="st">"KPSS p-value"</span>, <span class="st">"KPSS Result"</span>),</span>
-<span id="cb7-4"><a href="#cb7-4"></a>  <span class="at">House_mel =</span> <span class="fu">c</span>(hm_adf_teststat, <span class="st">"Fail to reject"</span>, hm_kpss_pval, <span class="st">"Reject"</span>),</span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="at">Appt_mel =</span> <span class="fu">c</span>(am_adf_teststat, <span class="st">"Fail to reject"</span>, am_kpss_pval, <span class="st">"Reject"</span>),</span>
-<span id="cb7-6"><a href="#cb7-6"></a>  <span class="at">House_syd =</span> <span class="fu">c</span>(hs_adf_teststat, <span class="st">"Fail to reject"</span>, hs_kpss_pval, <span class="st">"Reject"</span>),</span>
-<span id="cb7-7"><a href="#cb7-7"></a>  <span class="at">Appt_syd =</span> <span class="fu">c</span>(as_adf_teststat, <span class="st">"Fail to reject"</span>, as_kpss_pval, <span class="st">"Reject"</span>)</span>
-<span id="cb7-8"><a href="#cb7-8"></a>)</span>
-<span id="cb7-9"><a href="#cb7-9"></a></span>
-<span id="cb7-10"><a href="#cb7-10"></a>stationarity_summary <span class="sc">|&gt;</span> </span>
-<span id="cb7-11"><a href="#cb7-11"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb7-12"><a href="#cb7-12"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb7-13"><a href="#cb7-13"></a>    <span class="at">caption =</span> <span class="st">"Stationarity Test Results Summary"</span></span>
-<span id="cb7-14"><a href="#cb7-14"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Create summary table of stationarity tests</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>stationarity_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="at">Metric =</span> <span class="fu">c</span>(<span class="st">"ADF Test Stat"</span>, <span class="st">"ADF Result"</span>, <span class="st">"KPSS p-value"</span>, <span class="st">"KPSS Result"</span>),</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="at">House_mel =</span> <span class="fu">c</span>(hm_adf_teststat, <span class="st">"Fail to reject"</span>, hm_kpss_pval, <span class="st">"Reject"</span>),</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="at">Appt_mel =</span> <span class="fu">c</span>(am_adf_teststat, <span class="st">"Fail to reject"</span>, am_kpss_pval, <span class="st">"Reject"</span>),</span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="at">House_syd =</span> <span class="fu">c</span>(hs_adf_teststat, <span class="st">"Fail to reject"</span>, hs_kpss_pval, <span class="st">"Reject"</span>),</span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="at">Appt_syd =</span> <span class="fu">c</span>(as_adf_teststat, <span class="st">"Fail to reject"</span>, as_kpss_pval, <span class="st">"Reject"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8"></a>)</span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a>stationarity_summary <span class="sc">|&gt;</span> </span>
+<span id="cb8-11"><a href="#cb8-11"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb8-12"><a href="#cb8-12"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb8-13"><a href="#cb8-13"></a>    <span class="at">caption =</span> <span class="st">"Stationarity Test Results Summary"</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -460,78 +465,36 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>housingdata_diff <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb8-3"><a href="#cb8-3"></a>    <span class="at">house_mel =</span> <span class="fu">difference</span>(house_mel),</span>
-<span id="cb8-4"><a href="#cb8-4"></a>    <span class="at">appt_mel =</span> <span class="fu">difference</span>(appt_mel),</span>
-<span id="cb8-5"><a href="#cb8-5"></a>    <span class="at">house_syd =</span> <span class="fu">difference</span>(house_syd),</span>
-<span id="cb8-6"><a href="#cb8-6"></a>    <span class="at">appt_syd =</span> <span class="fu">difference</span>(appt_syd)</span>
-<span id="cb8-7"><a href="#cb8-7"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>housingdata_diff <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="at">house_mel =</span> <span class="fu">difference</span>(house_mel),</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="at">appt_mel =</span> <span class="fu">difference</span>(appt_mel),</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="at">house_syd =</span> <span class="fu">difference</span>(house_syd),</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="at">appt_syd =</span> <span class="fu">difference</span>(appt_syd)</span>
+<span id="cb9-7"><a href="#cb9-7"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>housingdata_diff <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>house_mel)) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Melbourne Differenced Median House Prices Over Time'</span>) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="fu">geom_line</span>()</span>
-<span id="cb9-5"><a href="#cb9-5"></a>housingdata_diff <span class="sc">|&gt;</span> </span>
-<span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>appt_mel)) <span class="sc">+</span> </span>
-<span id="cb9-7"><a href="#cb9-7"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Melbourne Differenced Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
-<span id="cb9-8"><a href="#cb9-8"></a>    <span class="fu">geom_line</span>()</span>
-<span id="cb9-9"><a href="#cb9-9"></a>housingdata_diff <span class="sc">|&gt;</span> </span>
-<span id="cb9-10"><a href="#cb9-10"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>house_syd)) <span class="sc">+</span> </span>
-<span id="cb9-11"><a href="#cb9-11"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Differenced Median House Prices Over Time'</span>) <span class="sc">+</span> </span>
-<span id="cb9-12"><a href="#cb9-12"></a>    <span class="fu">geom_line</span>()</span>
-<span id="cb9-13"><a href="#cb9-13"></a>housingdata_diff <span class="sc">|&gt;</span> </span>
-<span id="cb9-14"><a href="#cb9-14"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>appt_syd)) <span class="sc">+</span> </span>
-<span id="cb9-15"><a href="#cb9-15"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Differenced Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
-<span id="cb9-16"><a href="#cb9-16"></a>    <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>housingdata_diff <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>house_mel)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Melbourne Differenced Median House Prices Over Time'</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="fu">geom_line</span>()</span>
+<span id="cb10-5"><a href="#cb10-5"></a>housingdata_diff <span class="sc">|&gt;</span> </span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>appt_mel)) <span class="sc">+</span> </span>
+<span id="cb10-7"><a href="#cb10-7"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Melbourne Differenced Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
+<span id="cb10-8"><a href="#cb10-8"></a>    <span class="fu">geom_line</span>()</span>
+<span id="cb10-9"><a href="#cb10-9"></a>housingdata_diff <span class="sc">|&gt;</span> </span>
+<span id="cb10-10"><a href="#cb10-10"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>house_syd)) <span class="sc">+</span> </span>
+<span id="cb10-11"><a href="#cb10-11"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Differenced Median House Prices Over Time'</span>) <span class="sc">+</span> </span>
+<span id="cb10-12"><a href="#cb10-12"></a>    <span class="fu">geom_line</span>()</span>
+<span id="cb10-13"><a href="#cb10-13"></a>housingdata_diff <span class="sc">|&gt;</span> </span>
+<span id="cb10-14"><a href="#cb10-14"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>appt_syd)) <span class="sc">+</span> </span>
+<span id="cb10-15"><a href="#cb10-15"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Price"</span>, <span class="at">title=</span><span class="st">'Sydney Differenced Median Apartment Prices Over Time'</span>) <span class="sc">+</span> </span>
+<span id="cb10-16"><a href="#cb10-16"></a>    <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot data" data-layout-nrow="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" data-fig-pos="H" width="672"></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" data-fig-pos="H" width="672"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="Assignment2_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid" data-fig-pos="H" width="672"></p>
-</div>
-</div>
-</div>
-<p>The series of the first order differences looks stationary as there is a constant mean of <span class="math inline">\(0\)</span> across time and displays mean reverting behaviour. There are no obvious trends nor seasonality, however there appears to be a period of high volatility from <span class="math inline">\(2015\)</span> to roughly <span class="math inline">\(2018\)</span> on all plots.</p>
-</section>
-</section>
-<section id="differenced-series-acfs" class="level2">
-<h2 class="anchored" data-anchor-id="differenced-series-acfs">Differenced series ACF’s</h2>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>housingdata_diff <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">ACF</span>(house_mel) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Differenced Melbourne Housing data"</span>)</span>
-<span id="cb10-5"><a href="#cb10-5"></a>housingdata_diff <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">ACF</span>(appt_mel) <span class="sc">|&gt;</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Differenced Melbourne Apartment data"</span>)</span>
-<span id="cb10-9"><a href="#cb10-9"></a>housingdata_diff <span class="sc">|&gt;</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a>  <span class="fu">ACF</span>(house_syd) <span class="sc">|&gt;</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Differenced Sydney Housing data"</span>)</span>
-<span id="cb10-13"><a href="#cb10-13"></a>housingdata_diff <span class="sc">|&gt;</span></span>
-<span id="cb10-14"><a href="#cb10-14"></a>  <span class="fu">ACF</span>(appt_syd) <span class="sc">|&gt;</span></span>
-<span id="cb10-15"><a href="#cb10-15"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb10-16"><a href="#cb10-16"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Differenced Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot differenced ACFs" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" title="Plot data" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
@@ -549,29 +512,31 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>The series of the first order differences looks stationary as there is a constant mean of <span class="math inline">\(0\)</span> across time and displays mean reverting behaviour. There are no obvious trends nor seasonality, however there appears to be a period of high volatility from <span class="math inline">\(2015\)</span> to roughly <span class="math inline">\(2018\)</span> on all plots.</p>
 </section>
-<section id="differenced-series-pacfs" class="level2">
-<h2 class="anchored" data-anchor-id="differenced-series-pacfs">Differenced series PACF’s</h2>
+</section>
+<section id="differenced-series-acfs" class="level2">
+<h2 class="anchored" data-anchor-id="differenced-series-acfs">Differenced series ACF’s</h2>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>housingdata_diff <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">PACF</span>(house_mel) <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">ACF</span>(house_mel) <span class="sc">|&gt;</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Differenced Melbourne Housing data"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Differenced Melbourne Housing data"</span>)</span>
 <span id="cb11-5"><a href="#cb11-5"></a>housingdata_diff <span class="sc">|&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">PACF</span>(appt_mel) <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">ACF</span>(appt_mel) <span class="sc">|&gt;</span></span>
 <span id="cb11-7"><a href="#cb11-7"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Differenced Melbourne Apartment data"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Differenced Melbourne Apartment data"</span>)</span>
 <span id="cb11-9"><a href="#cb11-9"></a>housingdata_diff <span class="sc">|&gt;</span></span>
-<span id="cb11-10"><a href="#cb11-10"></a>  <span class="fu">PACF</span>(house_syd) <span class="sc">|&gt;</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>  <span class="fu">ACF</span>(house_syd) <span class="sc">|&gt;</span></span>
 <span id="cb11-11"><a href="#cb11-11"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb11-12"><a href="#cb11-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Differenced Sydney Housing data"</span>)</span>
+<span id="cb11-12"><a href="#cb11-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Differenced Sydney Housing data"</span>)</span>
 <span id="cb11-13"><a href="#cb11-13"></a>housingdata_diff <span class="sc">|&gt;</span></span>
-<span id="cb11-14"><a href="#cb11-14"></a>  <span class="fu">PACF</span>(appt_syd) <span class="sc">|&gt;</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a>  <span class="fu">ACF</span>(appt_syd) <span class="sc">|&gt;</span></span>
 <span id="cb11-15"><a href="#cb11-15"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb11-16"><a href="#cb11-16"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Differenced Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-16"><a href="#cb11-16"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"ACF"</span>, <span class="at">title=</span><span class="st">"ACF of Differenced Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" title="Plot differenced PACFs" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" title="Plot differenced ACFs" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
@@ -589,6 +554,46 @@ window.Quarto = {
 </div>
 </div>
 </div>
+</section>
+<section id="differenced-series-pacfs" class="level2">
+<h2 class="anchored" data-anchor-id="differenced-series-pacfs">Differenced series PACF’s</h2>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>housingdata_diff <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">PACF</span>(house_mel) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Differenced Melbourne Housing data"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5"></a>housingdata_diff <span class="sc">|&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">PACF</span>(appt_mel) <span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Differenced Melbourne Apartment data"</span>)</span>
+<span id="cb12-9"><a href="#cb12-9"></a>housingdata_diff <span class="sc">|&gt;</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>  <span class="fu">PACF</span>(house_syd) <span class="sc">|&gt;</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Differenced Sydney Housing data"</span>)</span>
+<span id="cb12-13"><a href="#cb12-13"></a>housingdata_diff <span class="sc">|&gt;</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a>  <span class="fu">PACF</span>(appt_syd) <span class="sc">|&gt;</span></span>
+<span id="cb12-15"><a href="#cb12-15"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb12-16"><a href="#cb12-16"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Lag"</span>, <span class="at">y=</span><span class="st">"PACF"</span>, <span class="at">title=</span><span class="st">"PACF of Differenced Sydney Apartment data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell quarto-layout-panel" title="Plot differenced PACFs" data-layout-nrow="2" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" data-fig-pos="H" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid" data-fig-pos="H" width="672"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-12-3.png" class="img-fluid" data-fig-pos="H" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Assignment2_files/figure-html/unnamed-chunk-12-4.png" class="img-fluid" data-fig-pos="H" width="672"></p>
+</div>
+</div>
+</div>
 <p>Looking at the ACF’s and PACF’s, the series have strange patterns, but this won’t be a problem. With the ACF’s, there’s a big spike at lag <span class="math inline">\(1\)</span>, then all others hover near <span class="math inline">\(0\)</span> with few small spikes spread out. With the PACF’s there are small spikes at early lags and then some random fluctuations. This is consistent with stationary processes with short memory; these series likely have an <span class="math inline">\(\text{AR}(1)\)</span> component as previously mentioned.</p>
 <p>The ACF’s show a strong positive first lag correlation, which indicates short run persistence, or momentum, in price changes. This is typical of housing markets and for a model such as a VAR, is captured by adding a lag.</p>
 <p>The PACF’s display oscillating behaviour. This means that there are small corrections in price changes, for example, price changes this quarter are positively related to the last quarter’s changes but then negatively related to the second lag, which is the correction. This is expected of housing markets as when prices start to rise they might rise for a short time, but then the rate of change would slow down likely due to affordability issues.</p>
@@ -599,71 +604,71 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># ADF test (hm_ stands for homes melbourne)</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>hm_diff_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata_diff<span class="sc">$</span>house_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
-<span id="cb12-3"><a href="#cb12-3"></a>hm_diff_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(hm_diff_adf_result)</span>
-<span id="cb12-4"><a href="#cb12-4"></a></span>
-<span id="cb12-5"><a href="#cb12-5"></a>hm_diff_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_diff_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
-<span id="cb12-6"><a href="#cb12-6"></a>hm_diff_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_diff_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
-<span id="cb12-7"><a href="#cb12-7"></a></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="co">#KPSS test</span></span>
-<span id="cb12-9"><a href="#cb12-9"></a>hm_diff_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata_diff<span class="sc">$</span>house_mel))</span>
-<span id="cb12-10"><a href="#cb12-10"></a>hm_diff_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_diff_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
-<span id="cb12-11"><a href="#cb12-11"></a></span>
-<span id="cb12-12"><a href="#cb12-12"></a><span class="co"># ADF test (am_ stands for apartments melbourne)</span></span>
-<span id="cb12-13"><a href="#cb12-13"></a>am_diff_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata_diff<span class="sc">$</span>appt_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
-<span id="cb12-14"><a href="#cb12-14"></a>am_diff_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(am_diff_adf_result)</span>
-<span id="cb12-15"><a href="#cb12-15"></a></span>
-<span id="cb12-16"><a href="#cb12-16"></a>am_diff_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(am_diff_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
-<span id="cb12-17"><a href="#cb12-17"></a>am_diff_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(am_diff_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
-<span id="cb12-18"><a href="#cb12-18"></a></span>
-<span id="cb12-19"><a href="#cb12-19"></a><span class="co">#KPSS test</span></span>
-<span id="cb12-20"><a href="#cb12-20"></a>am_diff_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata_diff<span class="sc">$</span>appt_mel))</span>
-<span id="cb12-21"><a href="#cb12-21"></a>am_diff_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(am_diff_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
-<span id="cb12-22"><a href="#cb12-22"></a></span>
-<span id="cb12-23"><a href="#cb12-23"></a><span class="co"># ADF test (hs_ stands for houses sydney)</span></span>
-<span id="cb12-24"><a href="#cb12-24"></a>hs_diff_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata_diff<span class="sc">$</span>house_syd, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
-<span id="cb12-25"><a href="#cb12-25"></a>hs_diff_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(hs_diff_adf_result)</span>
-<span id="cb12-26"><a href="#cb12-26"></a></span>
-<span id="cb12-27"><a href="#cb12-27"></a>hs_diff_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_diff_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
-<span id="cb12-28"><a href="#cb12-28"></a>hs_diff_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_diff_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
-<span id="cb12-29"><a href="#cb12-29"></a></span>
-<span id="cb12-30"><a href="#cb12-30"></a><span class="co">#KPSS test</span></span>
-<span id="cb12-31"><a href="#cb12-31"></a>hs_diff_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata_diff<span class="sc">$</span>house_syd))</span>
-<span id="cb12-32"><a href="#cb12-32"></a>hs_diff_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_diff_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
-<span id="cb12-33"><a href="#cb12-33"></a></span>
-<span id="cb12-34"><a href="#cb12-34"></a><span class="co"># ADF test (as_ stands for apartments sydney)</span></span>
-<span id="cb12-35"><a href="#cb12-35"></a>as_diff_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata_diff<span class="sc">$</span>appt_syd, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
-<span id="cb12-36"><a href="#cb12-36"></a>as_diff_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(as_diff_adf_result)</span>
-<span id="cb12-37"><a href="#cb12-37"></a></span>
-<span id="cb12-38"><a href="#cb12-38"></a>as_diff_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(as_diff_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
-<span id="cb12-39"><a href="#cb12-39"></a>as_diff_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(as_diff_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
-<span id="cb12-40"><a href="#cb12-40"></a></span>
-<span id="cb12-41"><a href="#cb12-41"></a><span class="co">#KPSS test</span></span>
-<span id="cb12-42"><a href="#cb12-42"></a>as_diff_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata_diff<span class="sc">$</span>appt_syd))</span>
-<span id="cb12-43"><a href="#cb12-43"></a>as_diff_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(as_diff_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># ADF test (hm_ stands for homes melbourne)</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>hm_diff_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata_diff<span class="sc">$</span>house_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
+<span id="cb13-3"><a href="#cb13-3"></a>hm_diff_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(hm_diff_adf_result)</span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a>hm_diff_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_diff_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb13-6"><a href="#cb13-6"></a>hm_diff_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_diff_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="co">#KPSS test</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a>hm_diff_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata_diff<span class="sc">$</span>house_mel))</span>
+<span id="cb13-10"><a href="#cb13-10"></a>hm_diff_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(hm_diff_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
+<span id="cb13-11"><a href="#cb13-11"></a></span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="co"># ADF test (am_ stands for apartments melbourne)</span></span>
+<span id="cb13-13"><a href="#cb13-13"></a>am_diff_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata_diff<span class="sc">$</span>appt_mel, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
+<span id="cb13-14"><a href="#cb13-14"></a>am_diff_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(am_diff_adf_result)</span>
+<span id="cb13-15"><a href="#cb13-15"></a></span>
+<span id="cb13-16"><a href="#cb13-16"></a>am_diff_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(am_diff_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb13-17"><a href="#cb13-17"></a>am_diff_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(am_diff_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
+<span id="cb13-18"><a href="#cb13-18"></a></span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="co">#KPSS test</span></span>
+<span id="cb13-20"><a href="#cb13-20"></a>am_diff_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata_diff<span class="sc">$</span>appt_mel))</span>
+<span id="cb13-21"><a href="#cb13-21"></a>am_diff_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(am_diff_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
+<span id="cb13-22"><a href="#cb13-22"></a></span>
+<span id="cb13-23"><a href="#cb13-23"></a><span class="co"># ADF test (hs_ stands for houses sydney)</span></span>
+<span id="cb13-24"><a href="#cb13-24"></a>hs_diff_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata_diff<span class="sc">$</span>house_syd, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
+<span id="cb13-25"><a href="#cb13-25"></a>hs_diff_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(hs_diff_adf_result)</span>
+<span id="cb13-26"><a href="#cb13-26"></a></span>
+<span id="cb13-27"><a href="#cb13-27"></a>hs_diff_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_diff_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb13-28"><a href="#cb13-28"></a>hs_diff_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_diff_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
+<span id="cb13-29"><a href="#cb13-29"></a></span>
+<span id="cb13-30"><a href="#cb13-30"></a><span class="co">#KPSS test</span></span>
+<span id="cb13-31"><a href="#cb13-31"></a>hs_diff_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata_diff<span class="sc">$</span>house_syd))</span>
+<span id="cb13-32"><a href="#cb13-32"></a>hs_diff_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(hs_diff_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span>
+<span id="cb13-33"><a href="#cb13-33"></a></span>
+<span id="cb13-34"><a href="#cb13-34"></a><span class="co"># ADF test (as_ stands for apartments sydney)</span></span>
+<span id="cb13-35"><a href="#cb13-35"></a>as_diff_adf_result <span class="ot">&lt;-</span> <span class="fu">ur.df</span>(housingdata_diff<span class="sc">$</span>appt_syd, <span class="at">type =</span> <span class="st">"drift"</span>, <span class="at">selectlags =</span> <span class="st">"AIC"</span>) </span>
+<span id="cb13-36"><a href="#cb13-36"></a>as_diff_adf_result_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(as_diff_adf_result)</span>
+<span id="cb13-37"><a href="#cb13-37"></a></span>
+<span id="cb13-38"><a href="#cb13-38"></a>as_diff_adf_teststat <span class="ot">&lt;-</span> <span class="fu">round</span>(as_diff_adf_result_sum<span class="sc">@</span>teststat[<span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb13-39"><a href="#cb13-39"></a>as_diff_adf_cval <span class="ot">&lt;-</span> <span class="fu">round</span>(as_diff_adf_result_sum<span class="sc">@</span>cval[<span class="dv">1</span>,<span class="dv">2</span>], <span class="dv">2</span>)</span>
+<span id="cb13-40"><a href="#cb13-40"></a></span>
+<span id="cb13-41"><a href="#cb13-41"></a><span class="co">#KPSS test</span></span>
+<span id="cb13-42"><a href="#cb13-42"></a>as_diff_kpss_result <span class="ot">&lt;-</span> <span class="fu">kpss.test</span>(<span class="fu">na.omit</span>(housingdata_diff<span class="sc">$</span>appt_syd))</span>
+<span id="cb13-43"><a href="#cb13-43"></a>as_diff_kpss_pval <span class="ot">&lt;-</span> <span class="fu">round</span>(as_diff_kpss_result<span class="sc">$</span>p.value, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Create summary table of stationarity tests</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>stationarity_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="at">Metric =</span> <span class="fu">c</span>(<span class="st">"ADF Test Stat"</span>, <span class="st">"ADF Result"</span>, <span class="st">"KPSS p-value"</span>, <span class="st">"KPSS Result"</span>),</span>
-<span id="cb13-4"><a href="#cb13-4"></a>  <span class="at">House_mel =</span> <span class="fu">c</span>(hm_diff_adf_teststat, <span class="st">"Reject"</span>, hm_diff_kpss_pval, <span class="st">"Fail to Reject"</span>),</span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="at">Appt_mel =</span> <span class="fu">c</span>(am_diff_adf_teststat, <span class="st">"Reject"</span>, am_diff_kpss_pval, <span class="st">"Fail to Reject"</span>),</span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="at">House_syd =</span> <span class="fu">c</span>(hs_diff_adf_teststat, <span class="st">"Reject"</span>, hs_diff_kpss_pval, <span class="st">"Fail to Reject"</span>),</span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="at">Appt_syd =</span> <span class="fu">c</span>(as_diff_adf_teststat, <span class="st">"Reject"</span>, as_diff_kpss_pval, <span class="st">"Fail to Reject"</span>)</span>
-<span id="cb13-8"><a href="#cb13-8"></a>)</span>
-<span id="cb13-9"><a href="#cb13-9"></a></span>
-<span id="cb13-10"><a href="#cb13-10"></a>stationarity_summary <span class="sc">|&gt;</span> </span>
-<span id="cb13-11"><a href="#cb13-11"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb13-12"><a href="#cb13-12"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb13-13"><a href="#cb13-13"></a>    <span class="at">caption =</span> <span class="st">"Stationarity Test Results Summary"</span>,</span>
-<span id="cb13-14"><a href="#cb13-14"></a>    <span class="at">col.names =</span> stationarity_summary <span class="sc">|&gt;</span> </span>
-<span id="cb13-15"><a href="#cb13-15"></a>      <span class="fu">names</span>() <span class="sc">|&gt;</span></span>
-<span id="cb13-16"><a href="#cb13-16"></a>      <span class="fu">imap</span>(\(x, idx) <span class="fu">ifelse</span>(idx<span class="sc">&gt;</span><span class="dv">1</span>, <span class="fu">paste0</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">texttt{"</span>, x, <span class="st">"}$"</span>) <span class="sc">|&gt;</span> <span class="fu">str_replace_all</span>(<span class="fu">fixed</span>(<span class="st">"_"</span>), <span class="fu">fixed</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">_"</span>)), x))</span>
-<span id="cb13-17"><a href="#cb13-17"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Create summary table of stationarity tests</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>stationarity_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="at">Metric =</span> <span class="fu">c</span>(<span class="st">"ADF Test Stat"</span>, <span class="st">"ADF Result"</span>, <span class="st">"KPSS p-value"</span>, <span class="st">"KPSS Result"</span>),</span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="at">House_mel =</span> <span class="fu">c</span>(hm_diff_adf_teststat, <span class="st">"Reject"</span>, hm_diff_kpss_pval, <span class="st">"Fail to Reject"</span>),</span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="at">Appt_mel =</span> <span class="fu">c</span>(am_diff_adf_teststat, <span class="st">"Reject"</span>, am_diff_kpss_pval, <span class="st">"Fail to Reject"</span>),</span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="at">House_syd =</span> <span class="fu">c</span>(hs_diff_adf_teststat, <span class="st">"Reject"</span>, hs_diff_kpss_pval, <span class="st">"Fail to Reject"</span>),</span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="at">Appt_syd =</span> <span class="fu">c</span>(as_diff_adf_teststat, <span class="st">"Reject"</span>, as_diff_kpss_pval, <span class="st">"Fail to Reject"</span>)</span>
+<span id="cb14-8"><a href="#cb14-8"></a>)</span>
+<span id="cb14-9"><a href="#cb14-9"></a></span>
+<span id="cb14-10"><a href="#cb14-10"></a>stationarity_summary <span class="sc">|&gt;</span> </span>
+<span id="cb14-11"><a href="#cb14-11"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb14-12"><a href="#cb14-12"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb14-13"><a href="#cb14-13"></a>    <span class="at">caption =</span> <span class="st">"Stationarity Test Results Summary"</span>,</span>
+<span id="cb14-14"><a href="#cb14-14"></a>    <span class="at">col.names =</span> stationarity_summary <span class="sc">|&gt;</span> </span>
+<span id="cb14-15"><a href="#cb14-15"></a>      <span class="fu">names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb14-16"><a href="#cb14-16"></a>      <span class="fu">imap</span>(\(x, idx) <span class="fu">ifelse</span>(idx<span class="sc">&gt;</span><span class="dv">1</span>, <span class="fu">paste0</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">texttt{"</span>, x, <span class="st">"}$"</span>) <span class="sc">|&gt;</span> <span class="fu">str_replace_all</span>(<span class="fu">fixed</span>(<span class="st">"_"</span>), <span class="fu">fixed</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">_"</span>)), x))</span>
+<span id="cb14-17"><a href="#cb14-17"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -742,55 +747,55 @@ y_t = c + \beta x_t + u_t
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>hm_hs_test <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">lm</span>(house_mel <span class="sc">~</span> house_syd, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">residuals</span>() <span class="sc">|&gt;</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">adf.test</span>()</span>
-<span id="cb14-5"><a href="#cb14-5"></a></span>
-<span id="cb14-6"><a href="#cb14-6"></a>hm_hs_p_val <span class="ot">&lt;-</span> hm_hs_test <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"p.value"</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
-<span id="cb14-7"><a href="#cb14-7"></a></span>
-<span id="cb14-8"><a href="#cb14-8"></a>am_as_test <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
-<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">lm</span>(appt_mel <span class="sc">~</span> appt_syd, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a>  <span class="fu">residuals</span>() <span class="sc">|&gt;</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a>  <span class="fu">adf.test</span>()</span>
-<span id="cb14-12"><a href="#cb14-12"></a></span>
-<span id="cb14-13"><a href="#cb14-13"></a>am_as_p_val <span class="ot">&lt;-</span> am_as_test <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"p.value"</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
-<span id="cb14-14"><a href="#cb14-14"></a></span>
-<span id="cb14-15"><a href="#cb14-15"></a>am_hm_test <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
-<span id="cb14-16"><a href="#cb14-16"></a>  <span class="fu">lm</span>(house_mel <span class="sc">~</span> appt_mel, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
-<span id="cb14-17"><a href="#cb14-17"></a>  <span class="fu">residuals</span>() <span class="sc">|&gt;</span></span>
-<span id="cb14-18"><a href="#cb14-18"></a>  <span class="fu">adf.test</span>()</span>
-<span id="cb14-19"><a href="#cb14-19"></a></span>
-<span id="cb14-20"><a href="#cb14-20"></a>am_hm_p_val <span class="ot">&lt;-</span> am_hm_test <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"p.value"</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
-<span id="cb14-21"><a href="#cb14-21"></a></span>
-<span id="cb14-22"><a href="#cb14-22"></a>as_hs_test <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
-<span id="cb14-23"><a href="#cb14-23"></a>  <span class="fu">lm</span>(house_syd <span class="sc">~</span> appt_syd, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
-<span id="cb14-24"><a href="#cb14-24"></a>  <span class="fu">residuals</span>() <span class="sc">|&gt;</span></span>
-<span id="cb14-25"><a href="#cb14-25"></a>  <span class="fu">adf.test</span>()</span>
-<span id="cb14-26"><a href="#cb14-26"></a></span>
-<span id="cb14-27"><a href="#cb14-27"></a>as_hs_p_val <span class="ot">&lt;-</span> as_hs_test <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"p.value"</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>hm_hs_test <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">lm</span>(house_mel <span class="sc">~</span> house_syd, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">residuals</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">adf.test</span>()</span>
+<span id="cb15-5"><a href="#cb15-5"></a></span>
+<span id="cb15-6"><a href="#cb15-6"></a>hm_hs_p_val <span class="ot">&lt;-</span> hm_hs_test <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"p.value"</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb15-7"><a href="#cb15-7"></a></span>
+<span id="cb15-8"><a href="#cb15-8"></a>am_as_test <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
+<span id="cb15-9"><a href="#cb15-9"></a>  <span class="fu">lm</span>(appt_mel <span class="sc">~</span> appt_syd, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a>  <span class="fu">residuals</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="fu">adf.test</span>()</span>
+<span id="cb15-12"><a href="#cb15-12"></a></span>
+<span id="cb15-13"><a href="#cb15-13"></a>am_as_p_val <span class="ot">&lt;-</span> am_as_test <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"p.value"</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb15-14"><a href="#cb15-14"></a></span>
+<span id="cb15-15"><a href="#cb15-15"></a>am_hm_test <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
+<span id="cb15-16"><a href="#cb15-16"></a>  <span class="fu">lm</span>(house_mel <span class="sc">~</span> appt_mel, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a>  <span class="fu">residuals</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-18"><a href="#cb15-18"></a>  <span class="fu">adf.test</span>()</span>
+<span id="cb15-19"><a href="#cb15-19"></a></span>
+<span id="cb15-20"><a href="#cb15-20"></a>am_hm_p_val <span class="ot">&lt;-</span> am_hm_test <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"p.value"</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb15-21"><a href="#cb15-21"></a></span>
+<span id="cb15-22"><a href="#cb15-22"></a>as_hs_test <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
+<span id="cb15-23"><a href="#cb15-23"></a>  <span class="fu">lm</span>(house_syd <span class="sc">~</span> appt_syd, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
+<span id="cb15-24"><a href="#cb15-24"></a>  <span class="fu">residuals</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-25"><a href="#cb15-25"></a>  <span class="fu">adf.test</span>()</span>
+<span id="cb15-26"><a href="#cb15-26"></a></span>
+<span id="cb15-27"><a href="#cb15-27"></a>as_hs_p_val <span class="ot">&lt;-</span> as_hs_test <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">"p.value"</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">data.frame</span>(</span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="at">Relationship =</span> <span class="fu">c</span>(</span>
-<span id="cb15-3"><a href="#cb15-3"></a>    <span class="st">"House prices in Melb and Syd"</span>,</span>
-<span id="cb15-4"><a href="#cb15-4"></a>    <span class="st">"Apartment prices in Melb and Syd "</span>,</span>
-<span id="cb15-5"><a href="#cb15-5"></a>    <span class="st">"Apartment prices and House prices in Melb"</span>, </span>
-<span id="cb15-6"><a href="#cb15-6"></a>    <span class="st">"Apartment prices and House prices in Syd"</span> </span>
-<span id="cb15-7"><a href="#cb15-7"></a>    ),</span>
-<span id="cb15-8"><a href="#cb15-8"></a>  <span class="st">"P Value"</span> <span class="ot">=</span> <span class="fu">c</span>(hm_hs_p_val, am_as_p_val, am_hm_p_val, as_hs_p_val),</span>
-<span id="cb15-9"><a href="#cb15-9"></a>  <span class="at">Result =</span> <span class="fu">rep</span>(<span class="st">"Failed to Reject $H_0$"</span>, <span class="dv">4</span>)</span>
-<span id="cb15-10"><a href="#cb15-10"></a>) <span class="sc">|&gt;</span> </span>
-<span id="cb15-11"><a href="#cb15-11"></a>  (\(table) knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb15-12"><a href="#cb15-12"></a>    table,</span>
-<span id="cb15-13"><a href="#cb15-13"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb15-14"><a href="#cb15-14"></a>    <span class="at">caption =</span> <span class="st">"Engle Granger Cointegration Test"</span>,</span>
-<span id="cb15-15"><a href="#cb15-15"></a>    <span class="at">col.names =</span> <span class="fu">names</span>(table) <span class="sc">|&gt;</span> </span>
-<span id="cb15-16"><a href="#cb15-16"></a>      <span class="fu">map</span>(\(x) <span class="fu">str_replace_all</span>(x, <span class="fu">fixed</span>(<span class="st">"."</span>), <span class="st">" "</span>))</span>
-<span id="cb15-17"><a href="#cb15-17"></a>  ))()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="at">Relationship =</span> <span class="fu">c</span>(</span>
+<span id="cb16-3"><a href="#cb16-3"></a>    <span class="st">"House prices in Melb and Syd"</span>,</span>
+<span id="cb16-4"><a href="#cb16-4"></a>    <span class="st">"Apartment prices in Melb and Syd "</span>,</span>
+<span id="cb16-5"><a href="#cb16-5"></a>    <span class="st">"Apartment prices and House prices in Melb"</span>, </span>
+<span id="cb16-6"><a href="#cb16-6"></a>    <span class="st">"Apartment prices and House prices in Syd"</span> </span>
+<span id="cb16-7"><a href="#cb16-7"></a>    ),</span>
+<span id="cb16-8"><a href="#cb16-8"></a>  <span class="st">"P Value"</span> <span class="ot">=</span> <span class="fu">c</span>(hm_hs_p_val, am_as_p_val, am_hm_p_val, as_hs_p_val),</span>
+<span id="cb16-9"><a href="#cb16-9"></a>  <span class="at">Result =</span> <span class="fu">rep</span>(<span class="st">"Failed to Reject $H_0$"</span>, <span class="dv">4</span>)</span>
+<span id="cb16-10"><a href="#cb16-10"></a>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-11"><a href="#cb16-11"></a>  (\(table) knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb16-12"><a href="#cb16-12"></a>    table,</span>
+<span id="cb16-13"><a href="#cb16-13"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb16-14"><a href="#cb16-14"></a>    <span class="at">caption =</span> <span class="st">"Engle Granger Cointegration Test"</span>,</span>
+<span id="cb16-15"><a href="#cb16-15"></a>    <span class="at">col.names =</span> <span class="fu">names</span>(table) <span class="sc">|&gt;</span> </span>
+<span id="cb16-16"><a href="#cb16-16"></a>      <span class="fu">map</span>(\(x) <span class="fu">str_replace_all</span>(x, <span class="fu">fixed</span>(<span class="st">"."</span>), <span class="st">" "</span>))</span>
+<span id="cb16-17"><a href="#cb16-17"></a>  ))()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -863,32 +868,32 @@ y_t = c + \beta x_t + u_t
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>housing_jo_summ <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">tibble</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb16-3"><a href="#cb16-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(house_mel, appt_mel, house_syd, appt_syd) <span class="sc">|&gt;</span> </span>
-<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">ca.jo</span>(</span>
-<span id="cb16-5"><a href="#cb16-5"></a>    <span class="at">ecdet =</span> <span class="st">"const"</span>, </span>
-<span id="cb16-6"><a href="#cb16-6"></a>    <span class="at">type=</span><span class="st">"eigen"</span>, </span>
-<span id="cb16-7"><a href="#cb16-7"></a>    <span class="at">K =</span> <span class="dv">2</span>, </span>
-<span id="cb16-8"><a href="#cb16-8"></a>    <span class="at">spec=</span><span class="st">"longrun"</span>, </span>
-<span id="cb16-9"><a href="#cb16-9"></a>    <span class="at">season=</span><span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-10"><a href="#cb16-10"></a>  <span class="fu">summary</span>() </span>
-<span id="cb16-11"><a href="#cb16-11"></a></span>
-<span id="cb16-12"><a href="#cb16-12"></a></span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="fu">data.frame</span>(</span>
-<span id="cb16-14"><a href="#cb16-14"></a>  <span class="at">Relationship =</span> <span class="fu">c</span>(<span class="st">"$r</span><span class="sc">\\</span><span class="st">leq 3$"</span>, <span class="st">"$r </span><span class="sc">\\</span><span class="st">leq 2$"</span>, <span class="st">"$r</span><span class="sc">\\</span><span class="st">leq 1$"</span>, <span class="st">"$r=0$"</span>),</span>
-<span id="cb16-15"><a href="#cb16-15"></a>  <span class="st">`</span><span class="at">Test Statistic</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">pluck</span>(housing_jo_summ, <span class="st">"teststat"</span>),</span>
-<span id="cb16-16"><a href="#cb16-16"></a>  <span class="st">`</span><span class="at">Critical Value</span><span class="st">`</span> <span class="ot">=</span> housing_jo_summ <span class="sc">|&gt;</span></span>
-<span id="cb16-17"><a href="#cb16-17"></a>    <span class="fu">pluck</span>(<span class="st">"cval"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-18"><a href="#cb16-18"></a>    <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb16-19"><a href="#cb16-19"></a>    <span class="fu">pull</span>(<span class="dv">2</span>),</span>
-<span id="cb16-20"><a href="#cb16-20"></a>  <span class="at">Result =</span> <span class="fu">rep</span>(<span class="st">"Fail to Reject"</span>, <span class="dv">4</span>)</span>
-<span id="cb16-21"><a href="#cb16-21"></a>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-22"><a href="#cb16-22"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb16-23"><a href="#cb16-23"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb16-24"><a href="#cb16-24"></a>    <span class="at">caption =</span> <span class="st">"Engle Granger Cointegration Test"</span>,</span>
-<span id="cb16-25"><a href="#cb16-25"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Relationship"</span>, <span class="st">"Test Statistic"</span>, <span class="st">"Critical Value ($5</span><span class="sc">\\</span><span class="st">%$)"</span>, <span class="st">"Result"</span>)</span>
-<span id="cb16-26"><a href="#cb16-26"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>housing_jo_summ <span class="ot">&lt;-</span> housingdata <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a href="#cb17-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(house_mel, appt_mel, house_syd, appt_syd) <span class="sc">|&gt;</span> </span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">ca.jo</span>(</span>
+<span id="cb17-5"><a href="#cb17-5"></a>    <span class="at">ecdet =</span> <span class="st">"const"</span>, </span>
+<span id="cb17-6"><a href="#cb17-6"></a>    <span class="at">type=</span><span class="st">"eigen"</span>, </span>
+<span id="cb17-7"><a href="#cb17-7"></a>    <span class="at">K =</span> <span class="dv">2</span>, </span>
+<span id="cb17-8"><a href="#cb17-8"></a>    <span class="at">spec=</span><span class="st">"longrun"</span>, </span>
+<span id="cb17-9"><a href="#cb17-9"></a>    <span class="at">season=</span><span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-10"><a href="#cb17-10"></a>  <span class="fu">summary</span>() </span>
+<span id="cb17-11"><a href="#cb17-11"></a></span>
+<span id="cb17-12"><a href="#cb17-12"></a></span>
+<span id="cb17-13"><a href="#cb17-13"></a><span class="fu">data.frame</span>(</span>
+<span id="cb17-14"><a href="#cb17-14"></a>  <span class="at">Relationship =</span> <span class="fu">c</span>(<span class="st">"$r</span><span class="sc">\\</span><span class="st">leq 3$"</span>, <span class="st">"$r </span><span class="sc">\\</span><span class="st">leq 2$"</span>, <span class="st">"$r</span><span class="sc">\\</span><span class="st">leq 1$"</span>, <span class="st">"$r=0$"</span>),</span>
+<span id="cb17-15"><a href="#cb17-15"></a>  <span class="st">`</span><span class="at">Test Statistic</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">pluck</span>(housing_jo_summ, <span class="st">"teststat"</span>),</span>
+<span id="cb17-16"><a href="#cb17-16"></a>  <span class="st">`</span><span class="at">Critical Value</span><span class="st">`</span> <span class="ot">=</span> housing_jo_summ <span class="sc">|&gt;</span></span>
+<span id="cb17-17"><a href="#cb17-17"></a>    <span class="fu">pluck</span>(<span class="st">"cval"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-18"><a href="#cb17-18"></a>    <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb17-19"><a href="#cb17-19"></a>    <span class="fu">pull</span>(<span class="dv">2</span>),</span>
+<span id="cb17-20"><a href="#cb17-20"></a>  <span class="at">Result =</span> <span class="fu">rep</span>(<span class="st">"Fail to Reject"</span>, <span class="dv">4</span>)</span>
+<span id="cb17-21"><a href="#cb17-21"></a>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-22"><a href="#cb17-22"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb17-23"><a href="#cb17-23"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb17-24"><a href="#cb17-24"></a>    <span class="at">caption =</span> <span class="st">"Engle Granger Cointegration Test"</span>,</span>
+<span id="cb17-25"><a href="#cb17-25"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Relationship"</span>, <span class="st">"Test Statistic"</span>, <span class="st">"Critical Value ($5</span><span class="sc">\\</span><span class="st">%$)"</span>, <span class="st">"Result"</span>)</span>
+<span id="cb17-26"><a href="#cb17-26"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">

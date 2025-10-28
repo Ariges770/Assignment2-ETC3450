@@ -62,8 +62,8 @@ To guide the first steps, it must be determined whether the series mentioned are
 ### Time Series Plots  
 
 ```{r}
-#| layout: [[1,1], [1,1]]  # More explicit grid
-#| fig-pos: 'ht'
+#| fig-pos: 'H'
+#| layout-ncol: 2
 #| title: Plot data
 
 housingdata |> 
@@ -75,6 +75,13 @@ housingdata |>
   ggplot(aes(x=date,y=appt_mel)) + 
     labs(x="Date", y="Price", title='Melbourne Median Apartment Prices Over Time') + 
     geom_line()
+```
+
+
+```{r}
+#| fig-pos: 'H'
+#| layout-ncol: 2
+#| title: Plot data
 
 housingdata |> 
   ggplot(aes(x=date,y=house_syd)) + 
