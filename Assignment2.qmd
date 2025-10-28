@@ -20,7 +20,7 @@ format:
     code-copy: hover
   report-pdf:
     fig-pos: false
-    fig-format: pdf
+    fig-format: jpeg
     execute:
       echo: false
 toc: true
