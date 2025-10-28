@@ -19,8 +19,8 @@ format:
     code-line-numbers: true
     code-copy: hover
   report-pdf:
-    fig-pos: false
-    fig-format: jpeg
+    fig-pos: b
+    fig-format: pdf
     execute:
       echo: false
 toc: true
