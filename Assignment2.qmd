@@ -118,7 +118,6 @@ ACF(housingdata, appt_syd) |>
 
 ### PACF's for Each Series  
 
-
 ```{r}
 #| title: Plot PACFs
 #| layout-ncol: 2
